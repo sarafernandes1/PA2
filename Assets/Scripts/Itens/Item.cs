@@ -10,9 +10,10 @@ public class Item : MonoBehaviour
     public InputController inputController;
     public Camera camera;
     public ItensDados dados_item;
-    public Inventario inventario;
 
-    bool rotate, item_collected, item_=false;
+    GameObject player;
+
+    bool rotate, item_collected, item_ = false;
 
     Vector3 initialPosition;
     Quaternion initialRotation;
@@ -21,14 +22,16 @@ public class Item : MonoBehaviour
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+        player = GameObject.Find("Player");
     }
 
     void Update()
     {
-        if(item_collected && inputController.PegarItem())
+        if (item_collected && inputController.PegarItem())
         {
             transform.position = camera.transform.position + camera.transform.forward * 4.0f;
             rotate = true;
+            canvas.enabled = false;
             Time.timeScale = 0.0f;
         }
 
@@ -59,7 +62,7 @@ public class Item : MonoBehaviour
         {
             transform.Rotate(new Vector3(0.5f, 0.0f, 0.0f));
         }
-        if (moviment.y> 0)
+        if (moviment.y > 0)
         {
             transform.Rotate(new Vector3(-0.5f, 0.0f, 0.0f));
         }
@@ -67,12 +70,12 @@ public class Item : MonoBehaviour
 
         StartCoroutine(espera());
 
-        if (inputController.PegarItem() && item_ )
+        if (inputController.PegarItem() && item_)
         {
-            inventario.ItemColetado(dados_item,gameObject);
-            gameObject.SetActive(false);
+            player.GetComponent<Inventario>().ItemColetado(dados_item, gameObject);
+            canvas.enabled = false;
+            rotate = false;
             descricao.enabled = false;
-            // descricao.GetComponent<RawImage>().enabled = false;
             Time.timeScale = 1.0f;
             item_ = false;
         }
@@ -91,13 +94,13 @@ public class Item : MonoBehaviour
 
     IEnumerator espera()
     {
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSecondsRealtime(0.5f);
         item_ = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        canvas.enabled = true;
+        if (this.transform.parent == null) canvas.enabled = true;
         item_collected = true;
     }
 
@@ -107,3 +110,4 @@ public class Item : MonoBehaviour
         item_collected = false;
     }
 }
+

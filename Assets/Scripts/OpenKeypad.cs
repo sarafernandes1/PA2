@@ -6,6 +6,7 @@ public class OpenKeypad : MonoBehaviour
 {
     public GameObject keypad;
     public GameObject keypadText;
+    public InputController inputController;
 
     public bool inReach;
 
@@ -35,7 +36,12 @@ public class OpenKeypad : MonoBehaviour
     {
         if (Input.GetButtonDown("Interact") && inReach)
         {
-            keypad.SetActive(true);    
+            keypad.SetActive(true);
         }
+
+        //if (inputController.PegarItem() && inReach)
+        //{
+        //    keypad.SetActive(true);
+        //}
     }
 }
