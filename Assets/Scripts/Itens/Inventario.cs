@@ -5,6 +5,7 @@ using UnityEngine.UI;
 
 public class Inventario : MonoBehaviour
 {
+
     public GameObject[] espacos_inventario;
     public InputController inputController;
     public GameObject mao;
@@ -16,6 +17,7 @@ public class Inventario : MonoBehaviour
     int index_imagem = 0;
     bool displayMessage = false;
     float displayTime = 3;
+    bool ativo;
 
     void Start()
     {
@@ -49,7 +51,7 @@ public class Inventario : MonoBehaviour
             {
                 if (objetos_inventario[l] != null)
                 {
-                    if (objetos_inventario[l].active)
+                    if (objetos_inventario[l].activeInHierarchy)
                     {
                         RetirarItemInventario(l);
                         if (numero_espacos_disponiveis < 6) numero_espacos_disponiveis += 1;
@@ -144,7 +146,7 @@ public class Inventario : MonoBehaviour
         {
             if (objetos_inventario[i] != null)
             {
-                if (i != index && objetos_inventario[i].active)
+                if (i != index && objetos_inventario[i].activeInHierarchy)
                 {
                     tem_na_mao = true;
                 }
@@ -155,7 +157,8 @@ public class Inventario : MonoBehaviour
 
     void AtivarItemMao(int index)
     {
-        objetos_inventario[index].active = !objetos_inventario[index].active;
+        ativo = !ativo;
+        objetos_inventario[index].SetActive(ativo);
         objetos_inventario[index].transform.position = mao.transform.position;
     }
 
