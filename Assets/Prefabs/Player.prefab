@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4415816604736255764
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8263626435395890344}
-  m_Layer: 3
-  m_Name: "M\xE3o"
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &8263626435395890344
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4415816604736255764}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.55, y: 0, z: 1.21}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7626300122079349791}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7626300122079349763
 GameObject:
   m_ObjectHideFlags: 0
@@ -44,6 +13,7 @@ GameObject:
   - component: {fileID: 7626300122079349789}
   - component: {fileID: 7626300122079349762}
   - component: {fileID: 7626300122079349790}
+  - component: {fileID: 7626300122079349784}
   - component: {fileID: 7626300122079349785}
   - component: {fileID: 7626300122079349787}
   m_Layer: 3
@@ -67,7 +37,6 @@ Transform:
   m_Children:
   - {fileID: 7626300122500810837}
   - {fileID: 7626300122705743796}
-  - {fileID: 8263626435395890344}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -149,9 +118,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 0}
   cameraTransform: {fileID: 0}
-  playerSpeed: 4
+  playerSpeed: 2
   jumpHeight: 1
   gravityValue: -9.81
+--- !u!114 &7626300122079349784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626300122079349763}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3150ab5396dfdc64ea374213f8d51662, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inputController: {fileID: 0}
 --- !u!143 &7626300122079349785
 CharacterController:
   m_ObjectHideFlags: 0
@@ -189,9 +171,8 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
-  inputController: {fileID: 0}
-  mao: {fileID: 4415816604736255764}
   dados_itens: {fileID: 11400000, guid: 352f18731f7890f43b07b38f8252a092, type: 2}
+  inputController: {fileID: 0}
 --- !u!1 &7626300122500810842
 GameObject:
   m_ObjectHideFlags: 0

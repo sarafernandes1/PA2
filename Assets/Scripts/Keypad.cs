@@ -1,81 +1,121 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;   
+using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
+    public int[] combination;
 
-    public GameObject player;
-    public GameObject keypad;
-    public GameObject HUD;
+    public GameObject num0;
+    public GameObject num1;
+    public GameObject num2;
+    public GameObject num3;
+    public GameObject num4;
+    public GameObject num5;
+    public GameObject num6;
+    public GameObject num7;
+    public GameObject num8;
+    public GameObject num9;
 
-    public Text text;
-    public string answer = "0451";
+    public GameObject clear;
+    public GameObject enter;
 
-    public GameObject animate;
-    public Animator animator;
+    public GameObject text;
 
-    public AudioSource button;
-    public AudioSource wrong;
-    public AudioSource correct;
+    public string wait;
+    public string denied;
+    public string granted;
 
-    public bool doingAnimation;
-
+    List<int> combo = new List<int>();
+    int index = 0;  
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        text.GetComponent<Text>().text = wait;
     }
 
-    public void Number(int number)
+    public void RightCombo(GameObject recived)
     {
-        text.text = number.ToString();
-        button.Play();
-    }
-
-    public void Execute()
-    {
-        if(text.text == answer)
+        if (recived == num0)
         {
-            correct.Play();
-            text.text = "Correct";
+            aumentarCombo(0);
         }
-        else
+
+        if (recived == num1)
         {
-            wrong.Play();
-            text.text = "Wrong";
+            aumentarCombo(1);
+        }
+
+        if (recived == num2)
+        {
+            aumentarCombo(3);
+        }
+
+        if (recived == num3)
+        {
+            aumentarCombo(4);
+        }
+
+        if(recived == num4)
+        {
+            aumentarCombo(5);
+        }
+
+        if (recived == num6)
+        {
+            aumentarCombo(6);
+        }
+
+        if (recived == num6)
+        {
+            aumentarCombo(6);
+        }
+
+        if (recived == num7)
+        {
+            aumentarCombo(7);
+        }
+
+        if (recived == num8)
+        {
+            aumentarCombo(8);
+        }
+
+        if (recived == num9)
+        {
+            aumentarCombo(9);
+        }
+
+        if (recived == clear)
+        {
+
+        }
+
+        if (recived == enter)
+        {
+
         }
     }
 
-    public void Clear()
-    {
-        text.text = "";
-        button.Play();
-    }
 
-    public void Exit()
+
+    public void aumentarCombo(int num)
     {
-        keypad.SetActive(false);
-        HUD.SetActive(true);
+        combo.Add(num); 
+        index++;
+        text.GetComponent<Text>().text += "";
+
+        for (int i = 0; i < index; i++)
+        {
+            text.GetComponent<Text>().text += "*";
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (text.text == "Correct" && animate)
-        {
-            animator.SetBool("animate",true);
-            Debug.Log("its open");
-        }
-
-        if (keypad.activeInHierarchy)
-        {
-            HUD.SetActive(false);
-            Cursor.visible = true; 
-            Cursor.lockState = CursorLockMode.None;
-        }
-
+        
     }
 }
