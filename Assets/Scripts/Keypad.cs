@@ -5,6 +5,8 @@ using UnityEngine.UI;
 
 public class Keypad : MonoBehaviour
 {
+
+
     public int[] combination;
 
     public GameObject num0;
