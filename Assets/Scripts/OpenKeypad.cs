@@ -34,14 +34,14 @@ public class OpenKeypad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Interact") && inReach)
-        {
-            keypad.SetActive(true);
-        }
-
-        //if (inputController.PegarItem() && inReach)
+        //if (Input.GetButtonDown("Interact") && inReach)
         //{
         //    keypad.SetActive(true);
         //}
+
+        if (inputController.PegarItem() && inReach)
+        {
+            keypad.SetActive(true);
+        }
     }
 }
