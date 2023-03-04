@@ -18,6 +18,13 @@ public class FieldOfViewEditor : Editor
         Handles.DrawLine(position,position + viewAngle01 * fov.radius);
         Handles.DrawLine(position,position + viewAngle02 * fov.radius);
 
+        //Vector3 viewAngle03 = DirectionFromAngle(fov.transform.eulerAngles.y, -fov.angle / 4);
+        //Vector3 viewAngle04 = DirectionFromAngle(fov.transform.eulerAngles.y, fov.angle / 4);
+
+        //Handles.color = Color.yellow;
+        //Handles.DrawLine(position, position + viewAngle03 * fov.radius);
+        //Handles.DrawLine(position, position + viewAngle04 * fov.radius);
+
         if (fov.canSeePlayer)
         {
             Handles.color = Color.green;
