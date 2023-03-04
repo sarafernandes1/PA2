@@ -1,47 +1,43 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UIElements;
+using static UnityEditor.Progress;
 
 public class OpenKeypad : MonoBehaviour
 {
-    public GameObject keypad;
-    public GameObject keypadText;
+    public Canvas Pegar, Keypad;
     public InputController inputController;
+    public Camera MainCamera;
 
-    public bool inReach;
-
-    // Start is called before the first frame update
     void Start()
     {
-        inReach = false;
+        
     }
 
-    public void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Reach")
-        {
-            inReach=true;
-            keypadText.SetActive(true);
-        }
-    }
-
-    public void OnTriggerExit(Collider other)
-    {
-        inReach = false;
-        keypadText.SetActive(false);
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetButtonDown("Interact") && inReach)
+        if(inputController.PegarItem())
         {
-            keypad.SetActive(true);
+            
+            Time.timeScale = 0.0f;
+            Keypad.enabled = true;
+
         }
 
-        //if (inputController.PegarItem() && inReach)
-        //{
-        //    keypad.SetActive(true);
-        //}
+       
     }
+
+
+    private void OnTriggerStay(Collider other)
+    {
+        Pegar.enabled = true;
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        Pegar.enabled = false;
+    }
+
+    
 }
