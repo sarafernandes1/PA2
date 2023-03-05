@@ -10,7 +10,7 @@ public class Teclas : MonoBehaviour
 
     private void OnMouseDown()
     {
-        keypad.GetComponent<Keypad>().RightCombo(gameObject);
+        //keypad.GetComponent<Keypad>().RightCombo(gameObject);
     }
 
     // Start is called before the first frame update
