@@ -33,7 +33,7 @@ public class OpenKeypad : MonoBehaviour
         if(inputController.PegarItem()&&reach)
         {
 
-            //Time.timeScale = 0.0f;
+            Time.timeScale = 0.0f;
             Keypad.enabled = true;
 
         }
