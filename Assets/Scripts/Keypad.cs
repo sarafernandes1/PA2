@@ -7,7 +7,7 @@ using TMPro;
 public class Keypad : MonoBehaviour
 {
     public GameObject input;
-    public GameObject keypadObject;
+    public Canvas keypad;
     public Text text;
     public string combination = "0451";
 
@@ -45,7 +45,8 @@ public class Keypad : MonoBehaviour
 
     public void Exit()
     {
-        keypadObject.SetActive(false);
+        keypad.enabled=false;
+        Time.timeScale = 1.0f;  
         //input.GetComponent <InputController> ().enabled = false;
     }
 
@@ -58,7 +59,7 @@ public class Keypad : MonoBehaviour
             Debug.Log("aberto");
         }
 
-        if (keypadObject.activeInHierarchy)
+        if (keypad.enabled)
         {
             //input.GetComponent<InputController>().enabled = true;
             Cursor.visible = true;

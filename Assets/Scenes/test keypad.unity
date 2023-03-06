@@ -540,6 +540,7 @@ MonoBehaviour:
   Keypad: {fileID: 1250350261}
   inputController: {fileID: 1681480864}
   MainCamera: {fileID: 603660267}
+  reach: 0
 --- !u!65 &324888341
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2664,6 +2665,7 @@ MonoBehaviour:
   Keypad: {fileID: 1250350261}
   inputController: {fileID: 1681480864}
   MainCamera: {fileID: 603660267}
+  reach: 0
 --- !u!224 &839812417
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4928,7 +4930,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   input: {fileID: 1681480863}
-  keypadObject: {fileID: 1360488788}
+  keypad: {fileID: 1250350261}
   text: {fileID: 2089043199}
   combination: 0451
   animatedGameObject: {fileID: 1140241259}
