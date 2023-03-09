@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour
 {
     public InputController inputController;
     public Transform cameraTransform;
+    public Transform eyes;
 
     public float playerSpeed = 2.0f;
     public float jumpHeight = 1.0f;
@@ -15,6 +16,10 @@ public class PlayerController : MonoBehaviour
     private bool groundedPlayer;
     public float gravityValue = -9.81f;
 
+    Vector3 initialEyesPosition;
+    Vector3 posicao_agachar;
+    int i = 0;
+    bool agachar = false;
 
     private void Start()
     {
@@ -24,6 +29,13 @@ public class PlayerController : MonoBehaviour
 
     void Update()
     {
+        if (inputController.Agachar())
+        {
+            agachar = !agachar;
+            PlayerAgachar();
+        }
+
+
         groundedPlayer = controller.isGrounded;
 
         if (groundedPlayer && playerVelocity.y < 0)
@@ -55,5 +67,19 @@ public class PlayerController : MonoBehaviour
         controller.Move(playerVelocity * Time.deltaTime);
 
 
+    }
+
+    void PlayerAgachar()
+    {
+        if (agachar)
+        {
+            posicao_agachar = new Vector3(eyes.position.x, eyes.position.y - 1.0f, eyes.position.z);
+            if (eyes.position != posicao_agachar) eyes.position = posicao_agachar;
+        }
+        else
+        {
+            initialEyesPosition = new Vector3(eyes.position.x, eyes.position.y + 1.0f, eyes.position.z);
+            if (eyes.position != initialEyesPosition) eyes.position = initialEyesPosition;
+        }
     }
 }

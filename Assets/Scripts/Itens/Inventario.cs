@@ -169,4 +169,21 @@ public class Inventario : MonoBehaviour
         objetos_inventario[index].transform.position = new Vector3(transform.position.x + 1.0f, transform.position.y, transform.position.z + 1.0f);
         objetos_inventario[index] = null;
     }
+
+    public bool VerificarItemInventario(string name)
+    {
+        for (int i = 0; i < 6; i++)
+        {
+            if (objetos_inventario[i] != null)
+            {
+                if (objetos_inventario[i].name==name)
+                {
+                    return true;
+                }
+            }
+        }
+        return false;
+
+    }
+
 }

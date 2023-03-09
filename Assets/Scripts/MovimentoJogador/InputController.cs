@@ -76,6 +76,10 @@ public class InputController : MonoBehaviour
         return -1;
     }
 
+    public bool Agachar()
+    {
+        return _playerControls.Player.Agachar.triggered;
+    }
     private void OnDisable()
     {
         _playerControls.Disable();

@@ -39,10 +39,13 @@ public class ColocarItemSitio : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (GameObject.Find("Cube (2)") != null && !coletado)
+        if (GameObject.Find("Cube (2)") != null && !coletado )
         {
-            canvas.enabled = true;
-            in_Area = true;
+            if (GameObject.Find("Player").GetComponent<Inventario>().VerificarItemInventario("Cube (2)"))
+            {
+                canvas.enabled = true;
+                in_Area = true;
+            }
         }
         else
         {
