@@ -4,9 +4,9 @@ using UnityEngine;
 using UnityEngine.UIElements;
 using static UnityEditor.Progress;
 
-public class OpenKeypad : MonoBehaviour
+public class OpenCanvas : MonoBehaviour
 {
-    public Canvas Pegar, Keypad;
+    public Canvas Pegar, UICanvas;
     public InputController inputController;
     public Camera MainCamera;
     public bool reach;
@@ -34,7 +34,7 @@ public class OpenKeypad : MonoBehaviour
         {
 
             Time.timeScale = 0.0f;
-            Keypad.enabled = true;
+            UICanvas.enabled = true;
 
         }
     }
