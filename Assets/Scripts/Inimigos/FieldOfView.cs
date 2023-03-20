@@ -21,12 +21,17 @@ public class FieldOfView : MonoBehaviour
     public GameObject[] pontos;
     public int pontos_index;
     bool perseguir = false;
-    float distanceToPlayer;
     float displayTime = 2.0f;
     bool displayMessage = false;
 
+    InimigoController inimigo;
+    //public Inimigos inimigoTipo;
+    public bool a;
+    public int index;
+
     private void Start()
     {
+        inimigo = new InimigoController();
         agent = this.GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
@@ -45,11 +50,17 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if(!perseguir) Move();
-        if (perseguir)
+        if (!perseguir)
         {
+            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = false;
+
+            Move();
+        }
+        else
+        {
+            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = true;
             float distance_min = 1000, distance;
-            for(int i = 0; i < pontos.Length; i++)
+            for (int i = 0; i < pontos.Length; i++)
             {
                 distance = Vector3.Distance(transform.position, pontos[i].transform.position);
                 if (distance < distance_min)
@@ -58,9 +69,12 @@ public class FieldOfView : MonoBehaviour
                     pontos_index = i;
                 }
             }
-            distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
+            float distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
+
+            agent.speed = 2.5f;
             agent.SetDestination(playerRef.transform.position);
-            if (distanceToPlayer >= 5.0f)
+
+            if (distanceToPlayer >= 10.0f)
             {
                 perseguir = false;
             }
@@ -80,6 +94,7 @@ public class FieldOfView : MonoBehaviour
                 displayTime = 2.0f;
             }
         }
+
     }
 
     private void FieldOfViewCheck()
@@ -120,18 +135,10 @@ public class FieldOfView : MonoBehaviour
 
     void Move()
     {
-        if (pontos_index < pontos.Length - 1)
-        {
-            agent.SetDestination(pontos[pontos_index].transform.position);
 
-            float distance = Vector3.Distance(transform.position, pontos[pontos_index].transform.position);
-            if (distance<=0.6f)
-            {
-                pontos_index += 1;
-            }
-        }
-
-        if (pontos_index == pontos.Length - 1) pontos_index = 0;
+        agent.speed = 2.0f;
+        inimigo.Patrulha(pontos_index, pontos, agent, this.transform);
+        pontos_index = inimigo.pontos();
     }
 
     private void OnGUI()
@@ -145,6 +152,5 @@ public class FieldOfView : MonoBehaviour
     void PlayerCaught()
     {
         perseguir = true;
-       
     }
 }

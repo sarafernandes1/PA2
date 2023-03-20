@@ -16,10 +16,8 @@ public class LanternaControlador : MonoBehaviour
 
     void Update()
     {
-        if (inputController.LightOnOff())
-        {
-            luz.enabled = !luz.enabled;
-        }
+            luz.enabled = true;
+        
 
     }
 }
