@@ -121,15 +121,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Agachar",
-                    "type": "Button",
-                    "id": "6deda066-d46b-4a74-8069-e23f021a1f3d",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -361,17 +352,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Item6",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "f935d1ca-16df-4503-88ff-73e518822185",
-                    "path": "<Keyboard>/leftShift",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "Agachar",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

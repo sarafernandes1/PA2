@@ -56,7 +56,7 @@ public class Keypad : MonoBehaviour
         if (text.text == "Granted" && animate)
         {
             animator.SetBool("Open", true); 
-            Debug.Log("aberto");
+            //Debug.Log("aberto");
         }
 
         if (keypad.enabled)
