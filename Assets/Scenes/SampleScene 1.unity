@@ -289,6 +289,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
+  inventario: {fileID: 0}
 --- !u!65 &44858579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1003,21 +1004,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   canSeePlayer: 0
-  pontos:
-  - {fileID: 2001430730}
-  - {fileID: 1824346356}
-  - {fileID: 1002976011}
-  - {fileID: 768672631}
-  - {fileID: 1307234545}
-  - {fileID: 1964263104}
-  - {fileID: 1893517932}
-  - {fileID: 1448526250}
-  - {fileID: 1039181533}
-  - {fileID: 892735352}
-  - {fileID: 1386481647}
-  pontos_index: 0
-  a: 0
-  index: 0
 --- !u!1 &238930359
 GameObject:
   m_ObjectHideFlags: 3
@@ -1327,8 +1313,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391186793}
-  m_LocalRotation: {x: 0.17409919, y: 0.12028873, z: -0.021432577, w: 0.9771186}
-  m_LocalPosition: {x: -0.040541317, y: -0.09829998, z: -0.16216536}
+  m_LocalRotation: {x: 0.11561816, y: 0.12135134, z: -0.01423324, w: 0.9857503}
+  m_LocalPosition: {x: -0.24510895, y: -0.5703697, z: -0.9804363}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1420,6 +1406,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
+  inventario: {fileID: 0}
 --- !u!65 &421712105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2858,7 +2845,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17121501, y: 0.000000029349497, z: -0.000000005100388, w: 0.9852337}
+  m_LocalRotation: {x: 0.17121498, y: 0.000000014681128, z: -0.0000000025513025, w: 0.9852337}
   m_LocalPosition: {x: 0, y: 3.0385332, z: -4.959999}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3498,6 +3485,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: 352f18731f7890f43b07b38f8252a092, type: 2}
+  inventario: {fileID: 0}
 --- !u!1 &1107654689
 GameObject:
   m_ObjectHideFlags: 0
@@ -3720,6 +3708,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
+  inventario: {fileID: 0}
 --- !u!65 &1119284108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4235,22 +4224,6 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   canSeePlayer: 0
-  pontos:
-  - {fileID: 962543261}
-  - {fileID: 1906876247}
-  - {fileID: 1729461653}
-  - {fileID: 1945332966}
-  - {fileID: 796715119}
-  - {fileID: 902069749}
-  - {fileID: 1595501920}
-  - {fileID: 1262678580}
-  - {fileID: 2031081418}
-  - {fileID: 1278890913}
-  - {fileID: 2139073198}
-  - {fileID: 1370017191}
-  pontos_index: 0
-  a: 0
-  index: 0
 --- !u!1 &1296604642
 GameObject:
   m_ObjectHideFlags: 3
@@ -4275,7 +4248,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296604642}
-  m_LocalRotation: {x: 0.16993217, y: 0.12037904, z: -0.020919599, w: 0.9778519}
+  m_LocalRotation: {x: 0.16993217, y: 0.120379, z: -0.020919593, w: 0.97785187}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4554,6 +4527,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c3067e997185ca642b558469d5a59a82, type: 2}
+  inventario: {fileID: 0}
 --- !u!65 &1356959835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4830,6 +4804,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: f353bc1715ea5504f89f51ef62298267, type: 2}
+  inventario: {fileID: 0}
 --- !u!65 &1445217123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5051,7 +5026,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 2009170386}
   porta: {fileID: 189703197}
-  canvas: {fileID: 1056073484}
 --- !u!1 &1479692049
 GameObject:
   m_ObjectHideFlags: 0
@@ -6293,6 +6267,7 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
+  inventario: {fileID: 0}
 --- !u!65 &1932362856
 BoxCollider:
   m_ObjectHideFlags: 0

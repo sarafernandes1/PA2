@@ -7,6 +7,7 @@ public class InputController : MonoBehaviour
 {
     private PlayerControls _playerControls;
 
+
     void Awake()
     {
         _playerControls = new PlayerControls();
@@ -76,6 +77,15 @@ public class InputController : MonoBehaviour
         return -1;
     }
 
+    public bool ItemInventario()
+    {
+        return _playerControls.Player.Inventario.triggered;
+    }
+
+    public bool Agachar()
+    {
+        return _playerControls.Player.Agachar.triggered;
+    }
     private void OnDisable()
     {
         _playerControls.Disable();
