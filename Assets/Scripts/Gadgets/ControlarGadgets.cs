@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ControlarGadgets : MonoBehaviour
 {
     public InputController inputController;
-    public bool luz=false, disfarce=false, gancho = false;
+    public bool luz = false, disfarce = false, gancho = false;
     public GameObject luzObject;
     public Text tempo;
     public RawImage image;
@@ -17,13 +17,14 @@ public class ControlarGadgets : MonoBehaviour
 
     void Start()
     {
-        
+
     }
 
     void Update()
     {
         //  ATIVAR OS GADGETS
-        if (inputController.ItemMao() == 0 && (tempo.text=="0" || tempo.text==""))  // PARA SABER SE O DISFARCE NÃO ESTA ATIVO
+        if (inputController.ItemMao() == 0 && (tempo.text == "0" || tempo.text == "") &&
+            !gameObject.GetComponent<PlayerController>().gancho)  // PARA SABER SE O DISFARCE NÃO ESTA ATIVO
         {
             luz = !luz;
             disfarce = false;
@@ -32,8 +33,10 @@ public class ControlarGadgets : MonoBehaviour
             tLuz += 1;              // SABER NUMERO DE VEZES QUE BOTAO FOI PERMIDO PARA DEPOIS À SEGUNDA O DESATIVAR
             tGancho = 0;
         }
-        else if (inputController.ItemMao() == 1)
+        else if (inputController.ItemMao() == 1 &&
+            !gameObject.GetComponent<PlayerController>().gancho)
         {
+
             disfarce = !disfarce;
             luz = false;
             gancho = false;
@@ -41,7 +44,7 @@ public class ControlarGadgets : MonoBehaviour
             tGancho = 0;
             tLuz = 0;
         }
-        else if (inputController.ItemMao() == 2 && (tempo.text == "0" || tempo.text == "") && 
+        else if (inputController.ItemMao() == 2 && (tempo.text == "0" || tempo.text == "") &&
             !gameObject.GetComponent<PlayerController>().gancho)
         {
             gancho = !gancho;
@@ -57,7 +60,7 @@ public class ControlarGadgets : MonoBehaviour
             disfarce = false;
             gancho = false;
         }
-       
+
         //ATIVAR OS GADGETS
         if (luz)
         {
@@ -71,7 +74,7 @@ public class ControlarGadgets : MonoBehaviour
         }
         else if (disfarce)
         {
-            disfarceImage.color = Color.red;
+            //disfarceImage.color = Color.red;
             luzImage.color = Color.white;
             ganchoImage.color = Color.white;
 
@@ -91,7 +94,7 @@ public class ControlarGadgets : MonoBehaviour
         }
 
         //QUANDO O BOTAO DE CADA UM É PREMIDO A SEGUNDA VE<
-        if (luz && tLuz==2)
+        if (luz && tLuz == 2)
         {
             luzImage.color = Color.white;
             luzObject.gameObject.SetActive(false);
@@ -99,7 +102,7 @@ public class ControlarGadgets : MonoBehaviour
             tLuz = 0;
         }
 
-        if (gancho && tGancho==2 && !gameObject.GetComponent<PlayerController>().gancho)
+        if (gancho && tGancho == 2 && !gameObject.GetComponent<PlayerController>().gancho)
         {
             ganchoImage.color = Color.white;
             image.enabled = false;

@@ -10,9 +10,9 @@ public class Item : MonoBehaviour
     public InputController inputController;
     public Camera camera;
     public ItensDados dados_item;
-    public Inventario inventario;
+    GameObject player;
 
-    bool rotate, item_collected, item_=false;
+    public bool rotate, item_collected, item_ = false;
 
     Vector3 initialPosition;
     Quaternion initialRotation;
@@ -21,15 +21,19 @@ public class Item : MonoBehaviour
     {
         initialPosition = transform.position;
         initialRotation = transform.rotation;
+        player = GameObject.Find("Player");
     }
 
     void Update()
     {
-        if(item_collected && inputController.PegarItem())
+        if (item_collected && inputController.PegarItem())
         {
             transform.position = camera.transform.position + camera.transform.forward * 4.0f;
             rotate = true;
+            canvas.enabled = false;
             Time.timeScale = 0.0f;
+            item_ = false;
+            item_collected = false;
         }
 
         if (rotate)
@@ -40,6 +44,7 @@ public class Item : MonoBehaviour
             descricao.enabled = true;
             RotateObject();
         }
+
     }
 
     void RotateObject()
@@ -59,7 +64,7 @@ public class Item : MonoBehaviour
         {
             transform.Rotate(new Vector3(0.5f, 0.0f, 0.0f));
         }
-        if (moviment.y> 0)
+        if (moviment.y > 0)
         {
             transform.Rotate(new Vector3(-0.5f, 0.0f, 0.0f));
         }
@@ -67,37 +72,43 @@ public class Item : MonoBehaviour
 
         StartCoroutine(espera());
 
-        if (inputController.PegarItem() && item_ )
+        if (inputController.PegarItem() && item_)
         {
-            inventario.ItemColetado(dados_item,gameObject);
-            gameObject.SetActive(false);
+
+            player.GetComponent<Inventario>().ItemColetado(dados_item, gameObject);
+            canvas.enabled = false;
+            rotate = false;
             descricao.enabled = false;
-            // descricao.GetComponent<RawImage>().enabled = false;
             Time.timeScale = 1.0f;
-            item_ = false;
+            // item_ = false;
+            // *****
+            transform.rotation = initialRotation;
+
         }
 
         if (inputController.DescartarItem() && item_)
         {
-            transform.position = initialPosition;
-            transform.rotation = initialRotation;
+            canvas.enabled = false;
             descricao.enabled = false;
             Time.timeScale = 1.0f;
             rotate = false;
-            item_ = false;
+            //item_ = false;
+
+            transform.position = initialPosition;
+            transform.rotation = initialRotation;
         }
 
     }
 
     IEnumerator espera()
     {
-        yield return new WaitForSecondsRealtime(2.0f);
+        yield return new WaitForSecondsRealtime(0.5f);
         item_ = true;
     }
 
     private void OnTriggerStay(Collider other)
     {
-        canvas.enabled = true;
+        if (this.transform.parent == null) canvas.enabled = true;
         item_collected = true;
     }
 

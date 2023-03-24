@@ -16,7 +16,10 @@ public class GrappingHook : MonoBehaviour
     bool irPosGancho = false;
 
     public InputController inputController;
+    public Transform mao;
     Vector3 posicaoPlayer;
+
+    public float y;
 
     void Start()
     {
@@ -24,57 +27,57 @@ public class GrappingHook : MonoBehaviour
 
     void Update()
     {
-            image.enabled = true;
-            RaycastHit hit;
-            Vector3 position = transform.position;
-            position.y = 16.0f;
-            Ray ray = new Ray(position, camera.transform.forward);
-            //Debug.DrawRay(ray.origin, ray.direction, Color.blue);
+        image.enabled = true;
+        RaycastHit hit;
+        Vector3 position = transform.position;
+        position.y = y;
+        Ray ray = new Ray(position, camera.transform.forward);
+        Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
-            if (Physics.Raycast(ray, out hit, 10.0f))
+        if (Physics.Raycast(ray, out hit, 20.0f))
+        {
+            if (hit.collider.tag != "Player")
             {
-                if (hit.collider.tag != "Player")
+                if (hit.collider.tag == "Objeto")
                 {
-                    if (hit.collider.tag == "Objeto")
-                    {
-                        isHitingGancho = true;
-                        image.color = Color.green;
+                    isHitingGancho = true;
+                    image.color = Color.green;
 
-                        posicaoPlayer = hit.transform.position;
-                    }
-                    else
-                    {
-                        isHitingGancho = false;
-                        image.color = Color.white;
+                    posicaoPlayer = hit.transform.position;
+                }
+                else
+                {
+                    isHitingGancho = false;
+                    image.color = Color.white;
 
 
-                    }
+                }
 
-                    if (!preso)
-                    {
-                        pos = hit.point;
-                        pos.y = 16.0f;
-                    }
+                if (!preso)
+                {
+                    pos = hit.point;
+                    pos.y = y;
                 }
             }
+        }
 
-            image.transform.position = camera.WorldToScreenPoint(pos);
+        image.transform.position = camera.WorldToScreenPoint(pos);
 
-            if (isHitingGancho && inputController.PegarItem())
-            {
-                irPosGancho = true;
-            }
+        if (isHitingGancho && inputController.PegarItem())
+        {
+            irPosGancho = true;
+        }
 
-            if (irPosGancho)
-            {
-                setGancho();
-            }
+        if (irPosGancho)
+        {
+            setGancho();
+        }
 
-            if (inputController.GetPlayerJumpInThisFrame() && fly)
-            {
-                this.GetComponent<PlayerController>().gancho = false;
-                fly = false;
-            }
+        if (inputController.GetPlayerJumpInThisFrame() && fly)
+        {
+            this.GetComponent<PlayerController>().gancho = false;
+            fly = false;
+        }
 
     }
 
@@ -94,7 +97,7 @@ public class GrappingHook : MonoBehaviour
 
         float distance = Vector3.Distance(transform.position, posicaoPlayer);
 
-        if (distance <1.0f)
+        if (distance < 1.0f)
         {
             line.gameObject.SetActive(false);
             isHitingGancho = false;

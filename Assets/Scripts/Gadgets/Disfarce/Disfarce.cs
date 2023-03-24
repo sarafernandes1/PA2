@@ -20,6 +20,7 @@ public class Disfarce : MonoBehaviour
     bool perseguido;
 
     public bool ativo = false;
+    public Image image;
 
     void Start()
     {
@@ -35,9 +36,15 @@ public class Disfarce : MonoBehaviour
             {
                 disfarceEstado = true;
             }
+            else
+            {
+                disfarceEstado = false;
+                ativo = false;
+            }
 
             if (disfarceEstado)
             {
+                image.color = Color.red;
                 a = true;
                 canvas.enabled = true;
                 if (this.gameObject.layer != 6) gameObject.layer = 6;
@@ -52,7 +59,8 @@ public class Disfarce : MonoBehaviour
                     tempoText.text = "";
                     a = false;
                     ativo = false;
-                    gameObject.GetComponent<Disfarce>().enabled = false;
+                    image.color = Color.white;
+                    //gameObject.GetComponent<Disfarce>().enabled = false;
                 }
             }
         }
@@ -61,7 +69,7 @@ public class Disfarce : MonoBehaviour
 
     bool verificarGuardas()
     {
-        for(int i = 0; i < perseguidoEstado.Length; i++)
+        for (int i = 0; i < perseguidoEstado.Length; i++)
         {
             if (perseguidoEstado[i] == true) return true;
         }

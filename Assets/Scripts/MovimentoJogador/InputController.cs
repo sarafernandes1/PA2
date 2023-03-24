@@ -6,8 +6,6 @@ using UnityEngine.UI;
 public class InputController : MonoBehaviour
 {
     private PlayerControls _playerControls;
-
-
     void Awake()
     {
         _playerControls = new PlayerControls();
@@ -91,3 +89,4 @@ public class InputController : MonoBehaviour
         _playerControls.Disable();
     }
 }
+

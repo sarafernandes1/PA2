@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class FieldOfView : MonoBehaviour
+public class InimigoParado : MonoBehaviour
 {
     public float radius;
     [Range(0, 360)]
@@ -18,19 +18,26 @@ public class FieldOfView : MonoBehaviour
 
     public bool canSeePlayer;
 
-    public GameObject[] pontos;
-    public int pontos_index;
     bool perseguir = false;
     float displayTime = 2.0f;
     bool displayMessage = false;
 
-    InimigoController inimigo;
-    public bool a;
     public int index;
+
+    Vector3 initialPosition;
+    Quaternion initialRotation;
+
+    public bool parado = true;
+    public bool destraido = false;
+    public Vector3 posicao_destracao;
+    public GameObject objetoDistracao;
+    bool pararDistracao = false;
+
 
     private void Start()
     {
-        inimigo = new InimigoController();
+        initialPosition = transform.position;
+        initialRotation = transform.rotation;
         agent = this.GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
@@ -49,28 +56,29 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (!perseguir)
+        if (destraido)
         {
-            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = false;
-
-            Move();
-        }
-        else
-        {
-            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = true;
-            float distance_min = 1000, distance;
-            for (int i = 0; i < pontos.Length; i++)
+            perseguir = false;
+            if(Vector3.Distance(transform.position, posicao_destracao) <= 2.0f)
             {
-                distance = Vector3.Distance(transform.position, pontos[i].transform.position);
-                if (distance < distance_min)
+                agent.SetDestination(transform.position);
+                StartCoroutine(pararSom());
+                if (pararDistracao)
                 {
-                    distance_min = distance;
-                    pontos_index = i;
+                    objetoDistracao.GetComponent<Light>().enabled = false;
+                    destraido = false;
+                    parado = true;
                 }
             }
+            else agent.SetDestination(posicao_destracao);
+        }
+
+        if (perseguir)
+        {
+            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = true;
             float distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
 
-            agent.speed = 2.0f;
+            agent.speed = 1.5f;
             agent.SetDestination(playerRef.transform.position);
 
             if (distanceToPlayer >= 10.0f)
@@ -81,6 +89,24 @@ public class FieldOfView : MonoBehaviour
             if (distanceToPlayer <= 2.0f)
             {
                 displayMessage = true;
+            }
+        }
+        else
+        {
+            if (!destraido)
+            {
+                //transform.Rotate(new Vector3(0.0f, Random.Range(-10, 10), 0.0f));
+                if (transform.position != initialPosition)
+                {
+                    agent.SetDestination(initialPosition);
+
+                }
+                float d = Vector3.Distance(transform.position, initialPosition);
+                if (d < 0.5f)
+                {
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, initialRotation, 1.5f);
+                    parado = true;
+                }
             }
         }
 
@@ -132,12 +158,11 @@ public class FieldOfView : MonoBehaviour
         }
     }
 
-    void Move()
-    {
 
-        agent.speed = 1.5f;
-        inimigo.Patrulha(pontos_index, pontos, agent, this.transform);
-        pontos_index = inimigo.pontos();
+    IEnumerator pararSom()
+    {
+        yield return new WaitForSeconds(2.0f);
+        pararDistracao = true;
     }
 
     private void OnGUI()
@@ -151,5 +176,7 @@ public class FieldOfView : MonoBehaviour
     void PlayerCaught()
     {
         perseguir = true;
+        parado = false;
     }
+
 }
