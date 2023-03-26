@@ -289,7 +289,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!65 &44858579
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1004,6 +1006,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   canSeePlayer: 0
+  pontos: []
+  pontos_index: 0
+  a: 0
+  index: 0
 --- !u!1 &238930359
 GameObject:
   m_ObjectHideFlags: 3
@@ -1235,7 +1241,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 313220388}
-  m_LocalRotation: {x: 0.15216455, y: 0.12073871, z: -0.018732302, w: 0.9807738}
+  m_LocalRotation: {x: 0.1521645, y: 0.1207387, z: -0.018732294, w: 0.9807738}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -1313,8 +1319,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 391186793}
-  m_LocalRotation: {x: 0.11561816, y: 0.12135134, z: -0.01423324, w: 0.9857503}
-  m_LocalPosition: {x: -0.24510895, y: -0.5703697, z: -0.9804363}
+  m_LocalRotation: {x: 0.18769063, y: 0.119978584, z: -0.023105761, w: 0.9745992}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -1406,7 +1412,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!65 &421712105
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -2052,7 +2060,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769589366}
   m_LocalRotation: {x: 0.0000000073947586, y: -0.122183196, z: 9.1033586e-10, w: 0.9925076}
-  m_LocalPosition: {x: 0, y: 3.0385332, z: -4.959999}
+  m_LocalPosition: {x: 0, y: 2.9785328, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -2230,6 +2238,8 @@ MonoBehaviour:
   pos: {x: 0, y: 0, z: 0}
   isHitingGancho: 0
   inputController: {fileID: 2009170386}
+  mao: {fileID: 0}
+  y: 0
 --- !u!114 &788142482
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2249,6 +2259,7 @@ MonoBehaviour:
   perseguidoEstado: 
   tempoText: {fileID: 150661300}
   ativo: 0
+  image: {fileID: 0}
 --- !u!1 &788806754
 GameObject:
   m_ObjectHideFlags: 0
@@ -2845,8 +2856,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.17121498, y: 0.000000014681128, z: -0.0000000025513025, w: 0.9852337}
-  m_LocalPosition: {x: 0, y: 3.0385332, z: -4.959999}
+  m_LocalRotation: {x: 0.17121495, y: -4.4744897e-16, z: 7.775815e-17, w: 0.9852337}
+  m_LocalPosition: {x: 0, y: 2.9785328, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -3485,7 +3496,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: 352f18731f7890f43b07b38f8252a092, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!1 &1107654689
 GameObject:
   m_ObjectHideFlags: 0
@@ -3708,7 +3721,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!65 &1119284108
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4224,6 +4239,10 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 16
   canSeePlayer: 0
+  pontos: []
+  pontos_index: 0
+  a: 0
+  index: 0
 --- !u!1 &1296604642
 GameObject:
   m_ObjectHideFlags: 3
@@ -4248,7 +4267,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1296604642}
-  m_LocalRotation: {x: 0.16993217, y: 0.120379, z: -0.020919593, w: 0.97785187}
+  m_LocalRotation: {x: 0.16993213, y: 0.12037901, z: -0.020919587, w: 0.9778519}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4527,7 +4546,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c3067e997185ca642b558469d5a59a82, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!65 &1356959835
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -4804,7 +4825,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: f353bc1715ea5504f89f51ef62298267, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!65 &1445217123
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -5026,6 +5049,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputController: {fileID: 2009170386}
   porta: {fileID: 189703197}
+  canvas: {fileID: 0}
+  braco: {fileID: 0}
+  cubo: {fileID: 0}
 --- !u!1 &1479692049
 GameObject:
   m_ObjectHideFlags: 0
@@ -6267,7 +6293,9 @@ MonoBehaviour:
   inputController: {fileID: 2009170386}
   camera: {fileID: 963194227}
   dados_item: {fileID: 11400000, guid: c35cb2221007559478ad81b549316f93, type: 2}
-  inventario: {fileID: 0}
+  rotate: 0
+  item_collected: 0
+  item_: 0
 --- !u!65 &1932362856
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -6966,6 +6994,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1296223895, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
+      propertyPath: inputController
+      value: 
+      objectReference: {fileID: 2009170386}
     - target: {fileID: 7626300122079349763, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_Name
       value: Player
@@ -7060,7 +7092,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7626300122705743797, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7626300122705743798, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_Enabled
