@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class Butao : MonoBehaviour
 {
+    bool isinArea = false;
+    public InputController inputController;
+
     public enum Direction
     {
         Up, Down, Left, Right, Win
@@ -22,7 +25,33 @@ public class Butao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (isinArea && inputController.PegarItem())
+        {
+            if (pathfinding.isMovingObject)
+            {
+                return;
+            }
 
+            switch (dir)
+            {
+                case Direction.Up:
+                    pathfinding.MoveObject(false, true);
+                    break;
+                case Direction.Down:
+                    pathfinding.MoveObject(false, false);
+                    break;
+                case Direction.Left:
+                    pathfinding.MoveObject(true, false);
+                    break;
+                case Direction.Right:
+                    pathfinding.MoveObject(true, true);
+                    break;
+                case Direction.Win:
+                    break;
+                default:
+                    break;
+            }
+        }
     }
 
     void OnMouseDown()
@@ -54,5 +83,13 @@ public class Butao : MonoBehaviour
 
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        isinArea = true;   
+    }
 
+    private void OnTriggerExit(Collider other)
+    {
+        isinArea = false;
+    }
 }

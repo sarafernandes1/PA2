@@ -30,7 +30,7 @@ public class ControlarGadgets : MonoBehaviour
             disfarce = false;
             gancho = false;
             image.enabled = false;
-            tLuz += 1;              // SABER NUMERO DE VEZES QUE BOTAO FOI PERMIDO PARA DEPOIS À SEGUNDA O DESATIVAR
+            tLuz += 1;              
             tGancho = 0;
         }
         else if (inputController.ItemMao() == 1 &&
@@ -68,7 +68,9 @@ public class ControlarGadgets : MonoBehaviour
             ganchoImage.color = Color.white;
             disfarceImage.color = Color.white;
 
-            luzObject.gameObject.SetActive(true);
+            luzObject.gameObject.GetComponent<Light>().enabled = true;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(1);
+
             gameObject.GetComponent<GrappingHook>().enabled = false;
             gameObject.GetComponent<Disfarce>().ativo = false;
         }
@@ -79,7 +81,10 @@ public class ControlarGadgets : MonoBehaviour
             ganchoImage.color = Color.white;
 
             gameObject.GetComponent<Disfarce>().ativo = true;
-            luzObject.gameObject.SetActive(false);
+            luzObject.gameObject.GetComponent<Light>().enabled = false;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(0);
+
+
             gameObject.GetComponent<GrappingHook>().enabled = false;
         }
         else if (gancho)
@@ -89,17 +94,23 @@ public class ControlarGadgets : MonoBehaviour
             disfarceImage.color = Color.white;
 
             gameObject.GetComponent<GrappingHook>().enabled = true;
-            luzObject.gameObject.SetActive(false);
+            luzObject.gameObject.GetComponent<Light>().enabled = false;
+
             gameObject.GetComponent<Disfarce>().ativo = false;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(0);
+
+
         }
 
         //QUANDO O BOTAO DE CADA UM É PREMIDO A SEGUNDA VE<
         if (luz && tLuz == 2)
         {
             luzImage.color = Color.white;
-            luzObject.gameObject.SetActive(false);
+            luzObject.gameObject.GetComponent<Light>().enabled = false;
             luz = false;
             tLuz = 0;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(0);
+
         }
 
         if (gancho && tGancho == 2 && !gameObject.GetComponent<PlayerController>().gancho)
