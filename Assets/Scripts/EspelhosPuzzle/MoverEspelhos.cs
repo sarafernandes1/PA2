@@ -36,7 +36,7 @@ public class MoverEspelhos : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (!bloqueado)
+        if (!bloqueado && other.gameObject.name=="Player")
         {
             isinArea = true;
             canvas.enabled = true;

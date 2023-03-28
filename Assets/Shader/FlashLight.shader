@@ -10,6 +10,7 @@ Shader "Custom/FlashLight"
         _LightDirection("Light Direction", Vector) = (0,0,1,0)
         _LightAngle("Light Angle", Range(0,180)) = 45
         _StrengthScalar("Strength", Float) = 50
+        _distancia("Distancia", Float)=10
         [Toggle]
         _IsLightOn("Light On", INT) = 0
          
@@ -41,6 +42,7 @@ Shader "Custom/FlashLight"
         float4  _LightDirection;
         float _LightAngle;
         float _StrengthScalar;
+        float _distancia;
         int _IsLightOn;
 
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
@@ -65,7 +67,7 @@ Shader "Custom/FlashLight"
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
 
-            o.Alpha = (strength * c.a) ;
+            o.Alpha = (strength * c.a);
         }
         ENDCG
     }

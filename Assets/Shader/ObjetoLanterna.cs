@@ -2,9 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[ExecuteInEditMode]
 public class ObjetoLanterna : MonoBehaviour
 {
-    public Transform player;
+    public GameObject player;
+    public Material reveal;
+
     public float distance;
 
     // Start is called before the first frame update
@@ -16,7 +19,7 @@ public class ObjetoLanterna : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(transform.position, player.position);
-        //gameObject.GetComponent<Renderer>().material.SetFloat("_distanceA", distance);
+        distance = Vector3.Distance(transform.position, player.transform.position);
+        reveal.SetFloat("_distancia", distance);
     }
 }
