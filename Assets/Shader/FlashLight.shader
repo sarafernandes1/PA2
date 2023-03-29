@@ -10,7 +10,7 @@ Shader "Custom/FlashLight"
         _LightDirection("Light Direction", Vector) = (0,0,1,0)
         _LightAngle("Light Angle", Range(0,180)) = 45
         _StrengthScalar("Strength", Float) = 50
-        _distancia("Distancia", Float)=10
+        _distancia("Distancia", Range(0,1))=1
         [Toggle]
         _IsLightOn("Light On", INT) = 0
          
@@ -22,7 +22,7 @@ Shader "Custom/FlashLight"
 
         CGPROGRAM
         // Physically based Standard lighting model, and enable shadows on all light types
-        #pragma surface surf Standard fullforwardshadows alpha
+        #pragma surface surf Standard fullforwardshadows alpha 
 
         // Use shader model 3.0 target, to get nicer looking lighting
         #pragma target 3.0
@@ -61,7 +61,13 @@ Shader "Custom/FlashLight"
 
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
-            o.Albedo = c.rgb;
+          
+            if(_distancia<5){
+              o.Albedo = c.rgb;
+            }
+            else{
+             discard;
+           }
             o.Emission = c.rgb * c.a * strength;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

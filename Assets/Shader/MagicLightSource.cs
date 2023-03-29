@@ -7,6 +7,7 @@ public class MagicLightSource : MonoBehaviour
 {
     public Material reveal;
     public Light light;
+    public Camera camera;
     public int lightEstado = 0;
     public GameObject player;
 
@@ -20,7 +21,7 @@ public class MagicLightSource : MonoBehaviour
     void Update()
     {
         reveal.SetVector("_LightPosition", player.transform.position);
-        reveal.SetVector("_LightDirection", -player.transform.forward);
+        reveal.SetVector("_LightDirection", -camera.transform.forward);
         reveal.SetFloat("_LightAngle",40);
     }
 
