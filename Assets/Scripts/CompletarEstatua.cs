@@ -61,7 +61,7 @@ public class CompletarEstatua : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         isInArea = false;
-        canvas.enabled = false;
+        canvas.enabled = true;
 
     }
 }
