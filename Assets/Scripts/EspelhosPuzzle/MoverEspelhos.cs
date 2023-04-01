@@ -10,6 +10,7 @@ public class MoverEspelhos : MonoBehaviour
 
     bool isinArea=false;
     public bool bloqueado = false;
+    public bool z = false;
     int n_vez_direita=0, n_vez_esquerda=0;
 
     void Start()
@@ -26,7 +27,11 @@ public class MoverEspelhos : MonoBehaviour
                 angle *= (-1);
                 n_vez_direita = 0;
             }
-            transform.Rotate(new Vector3(0.0f, angle, 0.0f));
+           if(!z) transform.Rotate(new Vector3(0.0f, angle, 0.0f));
+            else
+            {
+                transform.Rotate(new Vector3(angle, 0.0f, 0.0f));
+            }
             n_vez_direita += 1;
            
         }

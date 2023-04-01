@@ -62,12 +62,12 @@ Shader "Custom/FlashLight"
             // Albedo comes from a texture tinted by color
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
           
-            if(_distancia<5){
+           // if(_distancia<5){
               o.Albedo = c.rgb;
-            }
-            else{
-             discard;
-           }
+           // }
+            //else{
+            // discard;
+          // }
             o.Emission = c.rgb * c.a * strength;
             // Metallic and smoothness come from slider variables
             o.Metallic = _Metallic;

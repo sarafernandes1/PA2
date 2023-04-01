@@ -29,7 +29,20 @@ public class Pathfinding : MonoBehaviour
     void Update()
     {
         //FindPath(seeker.position, target.position);
-        if (seeker.transform.position.y <= -100)
+        //if (seeker.transform.position.y <= -100)
+        //{
+        //    winObject.GetComponent<Light>().enabled = true;
+
+        //    foreach (var item in butoes)
+        //    {
+        //        item.GetComponent<Butao>().dir = Butao.Direction.Win;
+        //    }
+        //}
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if(other.gameObject == seeker)
         {
             winObject.GetComponent<Light>().enabled = true;
 
@@ -52,22 +65,22 @@ public class Pathfinding : MonoBehaviour
         {
             if (positive)
             {
-                targetPos.x++;
+                targetPos.x+=1;
             }
             else
             {
-                targetPos.x--;
+                targetPos.x-=1;
             }
         }
         else
         {
             if (positive)
             {
-                targetPos.z++;
+                targetPos.z+=1;
             }
             else
             {
-                targetPos.z--;
+                targetPos.z-=1;
             }
         }
 
@@ -171,7 +184,7 @@ public class Pathfinding : MonoBehaviour
 
         StartCoroutine(WaitForMovement());
 
-        seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 1f); //* Time.deltaTime * 6f);
+        seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 1.0f); //* Time.deltaTime * 6f);
         //seeker.gameObject.GetComponent<Rigidbody>().MovePosition(targetPos);
 
         Debug.Log("Here!    " + seeker.position);

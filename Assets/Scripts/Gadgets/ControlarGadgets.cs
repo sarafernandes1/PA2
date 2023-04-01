@@ -68,7 +68,8 @@ public class ControlarGadgets : MonoBehaviour
             ganchoImage.color = Color.white;
             disfarceImage.color = Color.white;
 
-            luzObject.gameObject.SetActive(true);
+            luzObject.gameObject.GetComponent<Light>().enabled = true;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(1);
             gameObject.GetComponent<GrappingHook>().enabled = false;
             gameObject.GetComponent<Disfarce>().ativo = false;
         }
@@ -79,7 +80,8 @@ public class ControlarGadgets : MonoBehaviour
             ganchoImage.color = Color.white;
 
             gameObject.GetComponent<Disfarce>().ativo = true;
-            luzObject.gameObject.SetActive(false);
+            luzObject.gameObject.GetComponent<Light>().enabled = false;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(0);
             gameObject.GetComponent<GrappingHook>().enabled = false;
         }
         else if (gancho)
@@ -89,7 +91,8 @@ public class ControlarGadgets : MonoBehaviour
             disfarceImage.color = Color.white;
 
             gameObject.GetComponent<GrappingHook>().enabled = true;
-            luzObject.gameObject.SetActive(false);
+            luzObject.gameObject.GetComponent<Light>().enabled = false;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(0);
             gameObject.GetComponent<Disfarce>().ativo = false;
         }
 
@@ -97,7 +100,8 @@ public class ControlarGadgets : MonoBehaviour
         if (luz && tLuz == 2)
         {
             luzImage.color = Color.white;
-            luzObject.gameObject.SetActive(false);
+            luzObject.gameObject.GetComponent<Light>().enabled = false;
+            luzObject.GetComponent<MagicLightSource>().ligarLuz(0);
             luz = false;
             tLuz = 0;
         }
