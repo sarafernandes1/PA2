@@ -59,7 +59,7 @@ public class InimigoParado : MonoBehaviour
         if (destraido)
         {
             perseguir = false;
-            if(Vector3.Distance(transform.position, posicao_destracao) <= 2.0f)
+            if(Vector3.Distance(transform.position, posicao_destracao) <=3.0f)
             {
                 agent.SetDestination(transform.position);
                 StartCoroutine(pararSom());

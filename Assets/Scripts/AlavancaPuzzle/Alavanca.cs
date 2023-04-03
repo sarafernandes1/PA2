@@ -13,6 +13,9 @@ public class Alavanca : MonoBehaviour
 
     public GameObject controlador;
 
+    bool inArea = false;
+    public InputController inputController;
+
     IEnumerator mudar()
     {
         yield return new WaitForSeconds(0.875f);
@@ -31,23 +34,59 @@ public class Alavanca : MonoBehaviour
         controlador.GetComponent<AlavancaManager>().receberSinal(gameObject, virado);
     }
 
-    void OnMouseDown()
+    private void OnTriggerEnter(Collider other)
     {
-        if (podeVirar)
-        {
-            podeVirar = false;
-            if (!virado)
-            {
-                GetComponent<Animation>().Play("Sphere|Descer");
-                StartCoroutine(mudar());
-            }
-            else
-            {
-                GetComponent<Animation>().Play("Sphere|Subir");
-                StartCoroutine(mudar());
-
-            }
-        }
+        inArea = true;
 
     }
+
+    private void OnTriggerExit(Collider other)
+    {
+        inArea = false;
+    }
+
+    private void Update()
+    {
+        if (inArea)
+        {
+            if (inputController.PegarItem())
+            {
+                if (podeVirar)
+                {
+                    podeVirar = false;
+                    if (!virado)
+                    {
+                        GetComponent<Animation>().Play("Alavanca|Desligar");
+                        StartCoroutine(mudar());
+                    }
+                    else
+                    {
+                        GetComponent<Animation>().Play("Alavanca|Ligar");
+                        StartCoroutine(mudar());
+
+                    }
+                }
+            }
+        }
+    }
+
+    //void OnMouseDown()
+    //{
+    //    if (podeVirar)
+    //    {
+    //        podeVirar = false;
+    //        if (!virado)
+    //        {
+    //            GetComponent<Animation>().Play("Sphere|Descer");
+    //            StartCoroutine(mudar());
+    //        }
+    //        else
+    //        {
+    //            GetComponent<Animation>().Play("Sphere|Subir");
+    //            StartCoroutine(mudar());
+
+    //        }
+    //    }
+
+    //}
 }

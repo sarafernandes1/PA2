@@ -15,6 +15,8 @@ public class Keypad : MonoBehaviour
     public Animator animator;
     public bool animate;
 
+    public GameObject vidro;
+
     void Start()
     {
 
@@ -31,6 +33,8 @@ public class Keypad : MonoBehaviour
         if (text.text==combination)
         {
             text.text = "Granted";
+            Destroy(vidro.gameObject);
+
         }
         else
         {
@@ -55,7 +59,7 @@ public class Keypad : MonoBehaviour
     {
         if (text.text == "Granted" && animate)
         {
-            animator.SetBool("Open", true); 
+            animator.SetBool("Open", true);
             //Debug.Log("aberto");
         }
 

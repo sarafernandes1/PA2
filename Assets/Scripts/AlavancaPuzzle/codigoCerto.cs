@@ -4,9 +4,16 @@ using UnityEngine;
 
 public class codigoCerto : MonoBehaviour
 {
+    public GameObject laser;
+
     void ligarLuz()
     {
         GetComponent<Light>().enabled = true;
+    }
+
+    void desligarLaser()
+    {
+        Destroy(laser.gameObject);
     }
 
     void ligarLuz2()

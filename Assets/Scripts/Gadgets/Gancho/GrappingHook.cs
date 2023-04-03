@@ -20,6 +20,8 @@ public class GrappingHook : MonoBehaviour
     Vector3 posicaoPlayer;
 
     public float y;
+    public float y1;
+
 
     void Start()
     {
@@ -30,7 +32,9 @@ public class GrappingHook : MonoBehaviour
         image.enabled = true;
         RaycastHit hit;
         Vector3 position = transform.position;
-        position.y = y;
+        if (position.y >= y-4) position.y = y1;
+        else position.y = y;
+
         Ray ray = new Ray(position, camera.transform.forward);
         Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
@@ -56,7 +60,7 @@ public class GrappingHook : MonoBehaviour
                 if (!preso)
                 {
                     pos = hit.point;
-                    pos.y = y;
+                    pos.y = position.y;
                 }
             }
         }

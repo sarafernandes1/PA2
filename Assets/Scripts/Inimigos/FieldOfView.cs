@@ -70,7 +70,7 @@ public class FieldOfView : MonoBehaviour
             }
             float distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
 
-            agent.speed = 2.0f;
+           // agent.speed = 2.0f;
             agent.SetDestination(playerRef.transform.position);
 
             if (distanceToPlayer >= 10.0f)
@@ -135,7 +135,7 @@ public class FieldOfView : MonoBehaviour
     void Move()
     {
 
-        agent.speed = 1.5f;
+        //agent.speed = 1.5f;
         inimigo.Patrulha(pontos_index, pontos, agent, this.transform);
         pontos_index = inimigo.pontos();
     }
