@@ -27,6 +27,7 @@ public class Inventario : MonoBehaviour
     bool itens_desativados = false;
 
     public Image[] inventarioImagens;
+    public bool temObjetoFinal = false;
 
     void Start()
     {
@@ -35,6 +36,13 @@ public class Inventario : MonoBehaviour
 
     void Update()
     {
+
+        if(temObjetoFinal)
+        {
+            verificarItemInventario();
+        }
+
+
         ConfirmarInventario();
 
         if (numero_espacos_disponiveis > 0 && novo_item)
@@ -147,6 +155,7 @@ public class Inventario : MonoBehaviour
     {
         if (numero_espacos_disponiveis > 0)
         {
+            if (objeto.name == "Artifact_Ring_") temObjetoFinal = true;
             objeto.SetActive(false);
             for (int i = 0; i < 6; i++)
             {
@@ -260,5 +269,15 @@ public class Inventario : MonoBehaviour
         objetos_inventario[index_] = null;
         inventarioImagens[index_].color = Color.white;
         index_ = -1;
+    }
+    
+
+    public void verificarItemInventario()
+    {
+        GameObject[] guardas = GameObject.FindGameObjectsWithTag("Guardas");
+        foreach (var guarda in guardas)
+        {
+            guarda.GetComponent<FieldOfView>().batalhaFinal = true;
+        }
     }
 }

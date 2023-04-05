@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class Pathfinding : MonoBehaviour
 {
@@ -15,6 +16,8 @@ public class Pathfinding : MonoBehaviour
     [SerializeField] GameObject[] butoes;
     [HideInInspector] public bool isMovingObject;
 
+    public float distance;
+    bool chegou = false;
 
     void Awake()
     {
@@ -28,6 +31,19 @@ public class Pathfinding : MonoBehaviour
 
     void Update()
     {
+        distance= Vector3.Distance(seeker.transform.position, transform.position);
+        if (distance<=2.0f && !chegou)
+        {
+            //winObject.GetComponent<Light>().enabled = true;
+            winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
+            chegou = true;
+            foreach (var item in butoes)
+            {
+                item.GetComponent<Butao>().dir = Butao.Direction.Win;
+
+            }
+        }
+
         //FindPath(seeker.position, target.position);
         //if (seeker.transform.position.y <= -100)
         //{
@@ -40,11 +56,13 @@ public class Pathfinding : MonoBehaviour
         //}
     }
 
+
     private void OnTriggerStay(Collider other)
     {
         if(other.gameObject == seeker)
         {
-            winObject.GetComponent<Light>().enabled = true;
+            //winObject.GetComponent<Light>().enabled = true;
+            winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
 
             foreach (var item in butoes)
             {
@@ -65,7 +83,7 @@ public class Pathfinding : MonoBehaviour
         {
             if (positive)
             {
-                targetPos.x+=1;
+                targetPos.x+=1.0f;
             }
             else
             {
@@ -76,7 +94,7 @@ public class Pathfinding : MonoBehaviour
         {
             if (positive)
             {
-                targetPos.z+=1;
+                targetPos.z+=1.0f;
             }
             else
             {
@@ -185,6 +203,7 @@ public class Pathfinding : MonoBehaviour
         StartCoroutine(WaitForMovement());
 
         seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 1.0f); //* Time.deltaTime * 6f);
+       
         //seeker.gameObject.GetComponent<Rigidbody>().MovePosition(targetPos);
 
         Debug.Log("Here!    " + seeker.position);

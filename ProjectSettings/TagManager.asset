@@ -8,6 +8,7 @@ TagManager:
   - Objeto
   - Mirror
   - Guarda
+  - Guardas
   layers:
   - Default
   - TransparentFX

@@ -28,6 +28,8 @@ public class FieldOfView : MonoBehaviour
     public bool a;
     public int index;
 
+    public bool batalhaFinal=false;
+
     private void Start()
     {
         inimigo = new InimigoController();
@@ -49,49 +51,57 @@ public class FieldOfView : MonoBehaviour
 
     private void Update()
     {
-        if (!perseguir)
+        if (!batalhaFinal)
         {
-            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = false;
+            if (!perseguir)
+            {
+                playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = false;
 
-            Move();
+                Move();
+            }
+            else
+            {
+                playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = true;
+                float distance_min = 1000, distance;
+                for (int i = 0; i < pontos.Length; i++)
+                {
+                    distance = Vector3.Distance(transform.position, pontos[i].transform.position);
+                    if (distance < distance_min)
+                    {
+                        distance_min = distance;
+                        pontos_index = i;
+                    }
+                }
+                float distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
+
+                // agent.speed = 2.0f;
+                agent.SetDestination(playerRef.transform.position);
+
+                if (distanceToPlayer >= 10.0f)
+                {
+                    perseguir = false;
+                }
+
+                if (distanceToPlayer <= 2.0f)
+                {
+                    displayMessage = true;
+                }
+            }
+
+            if (displayMessage)
+            {
+                displayTime -= Time.deltaTime;
+                if (displayTime <= 0.0)
+                {
+                    displayMessage = false;
+                    displayTime = 2.0f;
+                }
+            }
         }
         else
         {
-            playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = true;
-            float distance_min = 1000, distance;
-            for (int i = 0; i < pontos.Length; i++)
-            {
-                distance = Vector3.Distance(transform.position, pontos[i].transform.position);
-                if (distance < distance_min)
-                {
-                    distance_min = distance;
-                    pontos_index = i;
-                }
-            }
-            float distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
-
-           // agent.speed = 2.0f;
             agent.SetDestination(playerRef.transform.position);
-
-            if (distanceToPlayer >= 10.0f)
-            {
-                perseguir = false;
-            }
-
-            if (distanceToPlayer <= 2.0f)
-            {
-                displayMessage = true;
-            }
-        }
-
-        if (displayMessage)
-        {
-            displayTime -= Time.deltaTime;
-            if (displayTime <= 0.0)
-            {
-                displayMessage = false;
-                displayTime = 2.0f;
-            }
+            agent.speed = 10;
         }
 
     }

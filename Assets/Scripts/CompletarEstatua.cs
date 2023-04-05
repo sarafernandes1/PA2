@@ -16,6 +16,8 @@ public class CompletarEstatua : MonoBehaviour
     int numero_pecas = 0;
     bool isInArea = false;
 
+    public bool alavanca;
+
     void Start()
     {
         
@@ -34,6 +36,19 @@ public class CompletarEstatua : MonoBehaviour
         {
             Destroy(porta.gameObject);
         }
+
+        if(numero_pecas==1 && alavanca)
+        {
+            gameObject.GetComponent<Alavanca>().a = true;
+            StartCoroutine(desativar());
+        }
+    }
+
+        IEnumerator desativar()
+    {
+        yield return new WaitForSeconds(0.5f);
+        gameObject.GetComponent<CompletarEstatua>().enabled = false;
+
     }
 
     public void ColocarPecaestatua()

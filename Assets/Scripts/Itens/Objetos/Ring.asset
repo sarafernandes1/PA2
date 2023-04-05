@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nome: Ring
   imagem_objeto: {fileID: 0}
-  description: 
+  description: "Pe\xE7a de enorme valor"

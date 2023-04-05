@@ -37,11 +37,11 @@ public class EspelhosPuzzle : MonoBehaviour
 			{
 				if (Physics.Raycast(ray.origin, ray.direction, out hit, remainingLength))
 				{
-					if (hit.collider.tag != "Mirror")
-					{
-						break;
-					}
-					lineRenderer.positionCount += 1;
+                    if (hit.collider.tag != "Mirror")
+                    {
+                        break;
+                    }
+                    lineRenderer.positionCount += 1;
 
 					lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
 

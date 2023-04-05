@@ -16,6 +16,8 @@ public class Alavanca : MonoBehaviour
     bool inArea = false;
     public InputController inputController;
 
+    public bool a = true;
+
     IEnumerator mudar()
     {
         yield return new WaitForSeconds(0.875f);
@@ -47,7 +49,7 @@ public class Alavanca : MonoBehaviour
 
     private void Update()
     {
-        if (inArea)
+        if (inArea && a)
         {
             if (inputController.PegarItem())
             {
