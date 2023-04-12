@@ -9,6 +9,7 @@ TagManager:
   - Mirror
   - Guarda
   - Guardas
+  - Escudo
   layers:
   - Default
   - TransparentFX

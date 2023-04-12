@@ -83,22 +83,22 @@ public class Pathfinding : MonoBehaviour
         {
             if (positive)
             {
-                targetPos.x+=1.0f;
+                targetPos.x+=2.0f;
             }
             else
             {
-                targetPos.x-=1;
+                targetPos.x-=2;
             }
         }
         else
         {
             if (positive)
             {
-                targetPos.z+=1.0f;
+                targetPos.z+=2;
             }
             else
             {
-                targetPos.z-=1;
+                targetPos.z-=2;
             }
         }
 
@@ -202,7 +202,7 @@ public class Pathfinding : MonoBehaviour
 
         StartCoroutine(WaitForMovement());
 
-        seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 1.0f); //* Time.deltaTime * 6f);
+        seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 2.0f); //* Time.deltaTime * 6f);
        
         //seeker.gameObject.GetComponent<Rigidbody>().MovePosition(targetPos);
 
@@ -214,7 +214,7 @@ public class Pathfinding : MonoBehaviour
     {
         isMovingObject = true;
 
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1.0f);
 
         isMovingObject = false;
     }

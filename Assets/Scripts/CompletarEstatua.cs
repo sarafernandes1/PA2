@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CompletarEstatua : MonoBehaviour
 {
-    public MeshRenderer[] pecas_estatua;
+    public GameObject[] pecas_estatua;
     
     public InputController inputController;
     public GameObject player;  
@@ -29,10 +29,20 @@ public class CompletarEstatua : MonoBehaviour
         {
             peca_jogador_mao = player.gameObject.GetComponent<Inventario>().objeto_mao;
             index = player.gameObject.GetComponent<Inventario>().index;
-            ColocarPecaestatua();
+           if(!alavanca) ColocarPecaestatua();
+            else
+            {
+                if (peca_jogador_mao.name == "Alavanca")
+                {
+                    player.GetComponent<Inventario>().RetirarItemInventario(index);
+                    Destroy(peca_jogador_mao);
+                    pecas_estatua[0].GetComponentInChildren<MeshRenderer>().enabled = true;
+                    numero_pecas += 1;
+                }
+            }
         }
 
-        if (numero_pecas==3)
+        if (numero_pecas==2)
         {
             Destroy(porta.gameObject);
         }
@@ -53,15 +63,27 @@ public class CompletarEstatua : MonoBehaviour
 
     public void ColocarPecaestatua()
     {
-        for (int i = 0; i < pecas_estatua.Length; i++) {
-            if (peca_jogador_mao.name== pecas_estatua[i].name)
+        int i = 0;
+            if (peca_jogador_mao.name== "US_Sword_")
             {
+                i = 0;
                player.GetComponent<Inventario>().RetirarItemInventario(index);
                 Destroy(peca_jogador_mao);
-                pecas_estatua[i].enabled = true;
+                pecas_estatua[i].SetActive( true);
+                //pecas_estatua[i].GetComponentInChildren<MeshRenderer>().enabled = true;
                 numero_pecas += 1;
             }
-        }
+
+            if (peca_jogador_mao.tag == "Escudo")
+            {
+                i = 1;
+                player.GetComponent<Inventario>().RetirarItemInventario(index);
+                Destroy(peca_jogador_mao);
+                pecas_estatua[i].SetActive(true);
+                //pecas_estatua[i].GetComponentInChildren<MeshRenderer>().enabled = true;
+                numero_pecas += 1;
+            }
+        
     }
 
     private void OnTriggerEnter(Collider other)
