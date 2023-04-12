@@ -1197,7 +1197,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23636
+  m_Name: pb_Mesh23644
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2603,7 +2603,7 @@ GameObject:
   - component: {fileID: 140106415}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Guardas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4448,7 +4448,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh23962
+  m_Name: pb_Mesh23968
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -7218,7 +7218,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 172.43335
+  distance: 139.29543
 --- !u!136 &198620976
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -14794,7 +14794,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh25006
+  m_Name: pb_Mesh25014
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -15992,7 +15992,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 157.35164
+  distance: 117.839836
 --- !u!136 &389142001
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -16927,7 +16927,7 @@ GameObject:
   - component: {fileID: 411600196}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Guardas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -20519,6 +20519,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
 --- !u!1 &493231373
@@ -21150,7 +21158,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 170.06178
+  distance: 135.59853
 --- !u!136 &494520937
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -21336,7 +21344,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 165.32492
+  distance: 127.228264
 --- !u!136 &496041122
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -27562,7 +27570,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 173.63914
+  distance: 141.34027
 --- !u!136 &629173703
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -28527,7 +28535,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 164.26938
+  distance: 125.447105
 --- !u!136 &643251867
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -31730,7 +31738,7 @@ GameObject:
   - component: {fileID: 698409989}
   - component: {fileID: 698409988}
   - component: {fileID: 698409987}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube (41)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -32076,7 +32084,7 @@ GameObject:
   - component: {fileID: 700039436}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Guardas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -36536,7 +36544,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh22444
+  m_Name: pb_Mesh22440
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -36727,100 +36735,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 32
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &858572818
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 858572820}
-  - component: {fileID: 858572819}
-  m_Layer: 0
-  m_Name: Directional Light (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!108 &858572819
-Light:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858572818}
-  m_Enabled: 1
-  serializedVersion: 10
-  m_Type: 2
-  m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 3.03
-  m_Range: 11.15
-  m_SpotAngle: 30
-  m_InnerSpotAngle: 21.80208
-  m_CookieSize: 10
-  m_Shadows:
-    m_Type: 0
-    m_Resolution: -1
-    m_CustomResolution: -1
-    m_Strength: 1
-    m_Bias: 0.05
-    m_NormalBias: 0.4
-    m_NearPlane: 0.2
-    m_CullingMatrixOverride:
-      e00: 1
-      e01: 0
-      e02: 0
-      e03: 0
-      e10: 0
-      e11: 1
-      e12: 0
-      e13: 0
-      e20: 0
-      e21: 0
-      e22: 1
-      e23: 0
-      e30: 0
-      e31: 0
-      e32: 0
-      e33: 1
-    m_UseCullingMatrixOverride: 0
-  m_Cookie: {fileID: 0}
-  m_DrawHalo: 0
-  m_Flare: {fileID: 0}
-  m_RenderMode: 0
-  m_CullingMask:
-    serializedVersion: 2
-    m_Bits: 4294967295
-  m_RenderingLayerMask: 1
-  m_Lightmapping: 2
-  m_LightShadowCasterMode: 0
-  m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 1
-  m_ColorTemperature: 6570
-  m_UseColorTemperature: 0
-  m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
-  m_UseBoundingSphereOverride: 0
-  m_UseViewFrustumForShadowCasterCull: 1
-  m_ShadowRadius: 0
-  m_ShadowAngle: 0
---- !u!4 &858572820
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 858572818}
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
-  m_LocalPosition: {x: 67.3, y: 26.23, z: 140.6}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 53
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
 --- !u!1 &858855486
 GameObject:
   m_ObjectHideFlags: 0
@@ -37992,7 +37906,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 158.44759
+  distance: 117.07049
 --- !u!136 &884421347
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38110,7 +38024,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 164.08002
+  distance: 125.479355
 --- !u!136 &889210676
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -38947,6 +38861,14 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
       propertyPath: m_Name
       value: Escadas_Espiral
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
+      propertyPath: m_NavMeshLayer
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5233112405309087440, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
+      propertyPath: m_StaticEditorFlags
+      value: 8
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72c6c82f7fbc65a4eac6647ec12e032c, type: 3}
@@ -41780,7 +41702,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 171.42111
+  distance: 137.69104
 --- !u!136 &993089209
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -46073,7 +45995,7 @@ GameObject:
   - component: {fileID: 1136463909}
   - component: {fileID: 1136463908}
   - component: {fileID: 1136463907}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube (53)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -49831,7 +49753,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 165.51286
+  distance: 127.19646
 --- !u!136 &1241339242
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -50387,6 +50309,10 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Untagged
       objectReference: {fileID: 0}
+    - target: {fileID: 6710014620758322877, guid: b488a3bc8eb9fa54896fad1b533b4840, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 7036213049465896255, guid: b488a3bc8eb9fa54896fad1b533b4840, type: 3}
       propertyPath: m_TagString
       value: Untagged
@@ -50403,6 +50329,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 125.104004
       objectReference: {fileID: 0}
+    - target: {fileID: 7646715699437254486, guid: b488a3bc8eb9fa54896fad1b533b4840, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
     - target: {fileID: 8879528566716807029, guid: b488a3bc8eb9fa54896fad1b533b4840, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
       value: 89.99999
@@ -52411,7 +52341,7 @@ GameObject:
   - component: {fileID: 1293938617}
   - component: {fileID: 1293938616}
   - component: {fileID: 1293938615}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube (46)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -53503,15 +53433,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7626300122079349791, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 91.5
+      value: 82.39
       objectReference: {fileID: 0}
     - target: {fileID: 7626300122079349791, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 24.5
+      value: 2.12
       objectReference: {fileID: 0}
     - target: {fileID: 7626300122079349791, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 177.974
+      value: 60.86
       objectReference: {fileID: 0}
     - target: {fileID: 7626300122079349791, guid: 6586f9d6bfe14b2419a577ed441c46c1, type: 3}
       propertyPath: m_LocalRotation.w
@@ -60278,7 +60208,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 158.25124
+  distance: 117.10505
 --- !u!136 &1435299414
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -66540,7 +66470,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 157.44742
+  distance: 117.66947
 --- !u!136 &1559862339
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -72582,7 +72512,7 @@ GameObject:
   - component: {fileID: 1694482446}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Guardas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -74349,7 +74279,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 157.56259
+  distance: 117.51542
 --- !u!136 &1732460352
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -74430,7 +74360,7 @@ GameObject:
   - component: {fileID: 1737215287}
   m_Layer: 0
   m_Name: Capsule
-  m_TagString: Untagged
+  m_TagString: Guardas
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -75744,7 +75674,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 158.6662
+  distance: 117.05689
 --- !u!136 &1756440616
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -77694,7 +77624,7 @@ GameObject:
   - component: {fileID: 1828431664}
   - component: {fileID: 1828431663}
   - component: {fileID: 1828431662}
-  m_Layer: 0
+  m_Layer: 4
   m_Name: Cube (45)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -78720,7 +78650,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 161.19016
+  distance: 123.327225
 --- !u!136 &1849997552
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -80010,7 +79940,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 159.05254
+  distance: 119.67057
 --- !u!136 &1893879715
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -80867,7 +80797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 164.48027
+  distance: 125.43442
 --- !u!136 &1919396315
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -83408,7 +83338,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 172.22118
+  distance: 139.20839
 --- !u!136 &1999795430
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -85147,7 +85077,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 165.72217
+  distance: 127.183945
 --- !u!136 &2057124645
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -86352,7 +86282,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 174.70343
+  distance: 142.983
 --- !u!136 &2087294936
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -87081,11 +87011,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965095668831154276, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12065273
+      value: 0.12065276
       objectReference: {fileID: 0}
     - target: {fileID: 5965095668831154276, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.01927813
+      value: -0.019278133
       objectReference: {fileID: 0}
     - target: {fileID: 5965095668925248008, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_RootOrder
@@ -87173,15 +87103,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670175314082, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.12559922
+      value: 0.12559919
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670175314082, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12120089
+      value: 0.12120093
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670175314082, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.01546196
+      value: -0.015461961
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597548, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_Lens.FieldOfView
@@ -87189,31 +87119,31 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.03242639
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.078783035
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -0.12970564
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.97664064
+      value: 0.9745992
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.x
-      value: 0.17676102
+      value: 0.18769063
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: 0.12022991
+      value: 0.11997856
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670275597549, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.021760268
+      value: -0.023105757
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670434065904, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_Follow
@@ -87233,27 +87163,27 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670434065919, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85.39053
+      value: 76.28053
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670434065919, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.488533
+      value: -6.891467
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670434065919, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 186.79143
+      value: 69.67743
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017075, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 85.39053
+      value: 76.28053
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017075, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 15.488533
+      value: -6.891467
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017075, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 186.79143
+      value: 69.67743
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017075, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.w
@@ -87265,11 +87195,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017075, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0.000000041233676
+      value: -0.000000029429028
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017075, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: m_LocalRotation.z
-      value: 0.0000000065883983
+      value: 0.0000000047022284
       objectReference: {fileID: 0}
     - target: {fileID: 5965095670641017076, guid: a634e7934be17f24492724c5606e769e, type: 3}
       propertyPath: field of view
@@ -89506,7 +89436,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 229341031}
   reveal: {fileID: 2100000, guid: 0f7521fa8f2ad1e4eaabc2b76aa42649, type: 2}
-  distance: 160.28113
+  distance: 121.74174
 --- !u!136 &2139656489
 CapsuleCollider:
   m_ObjectHideFlags: 0

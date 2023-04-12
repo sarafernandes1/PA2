@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Espada
   m_EditorClassIdentifier: 
   nome: Espada
-  imagem_objeto: {fileID: 0}
+  imagem_objeto: {fileID: 21300000, guid: 8325d4ef0a6eb3d43952aff8a06d9f45, type: 3}
   description: Espada pretencente a Cavaleiro
