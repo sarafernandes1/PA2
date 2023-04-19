@@ -20,6 +20,7 @@ public class MagicLightSource : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //reveal.SetInt("_IsLightOn", 1);
         reveal.SetVector("_LightPosition", player.transform.position);
         reveal.SetVector("_LightDirection", -camera.transform.forward);
         reveal.SetFloat("_LightAngle",40);

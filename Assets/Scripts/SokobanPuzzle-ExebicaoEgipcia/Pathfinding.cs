@@ -18,6 +18,8 @@ public class Pathfinding : MonoBehaviour
 
     public float distance;
     bool chegou = false;
+    public AudioSource audioAnimacaoEstatua;
+    public AudioSource audioAndarSacrofago;
 
     void Awake()
     {
@@ -37,6 +39,7 @@ public class Pathfinding : MonoBehaviour
             //winObject.GetComponent<Light>().enabled = true;
             winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
             chegou = true;
+            audioAnimacaoEstatua.Play();
             foreach (var item in butoes)
             {
                 item.GetComponent<Butao>().dir = Butao.Direction.Win;
@@ -197,14 +200,13 @@ public class Pathfinding : MonoBehaviour
     public void MoveObject(bool x, bool direita_cima)
     {
         //if(Node)
+
+        audioAndarSacrofago.Play();
         Debug.Log(seeker.position);
         FindPath(seeker.position, x, direita_cima);
 
         StartCoroutine(WaitForMovement());
-
         seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 2.0f); //* Time.deltaTime * 6f);
-       
-        //seeker.gameObject.GetComponent<Rigidbody>().MovePosition(targetPos);
 
         Debug.Log("Here!    " + seeker.position);
 

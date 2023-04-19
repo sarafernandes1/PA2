@@ -30,6 +30,7 @@ public class FieldOfView : MonoBehaviour
 
     public bool batalhaFinal=false;
 
+
     private void Start()
     {
         inimigo = new InimigoController();
@@ -94,6 +95,7 @@ public class FieldOfView : MonoBehaviour
                 if (displayTime <= 0.0)
                 {
                     displayMessage = false;
+                    StartCoroutine(espera());
                     displayTime = 2.0f;
                 }
             }
@@ -140,6 +142,13 @@ public class FieldOfView : MonoBehaviour
         {
             canSeePlayer = false;
         }
+    }
+
+    IEnumerator espera()
+    {
+        yield return new WaitForSeconds(2.0f);
+        GameOver.gameOver = true;
+
     }
 
     void Move()

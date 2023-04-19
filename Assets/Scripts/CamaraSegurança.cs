@@ -61,6 +61,7 @@ public class CamaraSegurança : MonoBehaviour
         if (displayMessage)
         {
             GUI.Label(new Rect(Screen.width / 2, Screen.height / 2, 200f, 200f), "Jogador apanhado");
+            GameOver.gameOver = true;
         }
     }
 }

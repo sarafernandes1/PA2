@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Vermelho
+  m_Name: grey 1
   m_Shader: {fileID: 46, guid: 0000000000000000f000000000000000, type: 0}
   m_ValidKeywords:
   - _ALPHABLEND_ON
@@ -66,7 +66,7 @@ Material:
     - _DetailNormalMapScale: 1
     - _DstBlend: 10
     - _GlossMapScale: 1
-    - _Glossiness: 0.482
+    - _Glossiness: 0.529
     - _GlossyReflections: 1
     - _Metallic: 0
     - _Mode: 2
@@ -78,6 +78,6 @@ Material:
     - _UVSec: 0
     - _ZWrite: 0
     m_Colors:
-    - _Color: {r: 1, g: 0.3433962, b: 0.3433962, a: 1}
-    - _EmissionColor: {r: 1, g: 0.1830188, b: 0.1830188, a: 1}
+    - _Color: {r: 0.6981132, g: 0.4175507, b: 0.4175507, a: 1}
+    - _EmissionColor: {r: 0.18867922, g: 0.17515127, b: 0.17515127, a: 1}
   m_BuildTextureStacks: []

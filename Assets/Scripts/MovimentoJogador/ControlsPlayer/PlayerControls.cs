@@ -152,6 +152,15 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""Pausa"",
+                    ""type"": ""Button"",
+                    ""id"": ""1784efa8-5089-4853-b4df-f84e3f2d8ec0"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -394,6 +403,17 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""Agachar"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""2c659924-3ac6-4619-bc16-65628af44973"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Pausa"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -995,6 +1015,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Player_Item5 = m_Player.FindAction("Item5", throwIfNotFound: true);
         m_Player_Item6 = m_Player.FindAction("Item6", throwIfNotFound: true);
         m_Player_Agachar = m_Player.FindAction("Agachar", throwIfNotFound: true);
+        m_Player_Pausa = m_Player.FindAction("Pausa", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1080,6 +1101,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_Item5;
     private readonly InputAction m_Player_Item6;
     private readonly InputAction m_Player_Agachar;
+    private readonly InputAction m_Player_Pausa;
     public struct PlayerActions
     {
         private @PlayerControls m_Wrapper;
@@ -1098,6 +1120,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         public InputAction @Item5 => m_Wrapper.m_Player_Item5;
         public InputAction @Item6 => m_Wrapper.m_Player_Item6;
         public InputAction @Agachar => m_Wrapper.m_Player_Agachar;
+        public InputAction @Pausa => m_Wrapper.m_Player_Pausa;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1149,6 +1172,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Agachar.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAgachar;
                 @Agachar.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAgachar;
                 @Agachar.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnAgachar;
+                @Pausa.started -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPausa;
+                @Pausa.performed -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPausa;
+                @Pausa.canceled -= m_Wrapper.m_PlayerActionsCallbackInterface.OnPausa;
             }
             m_Wrapper.m_PlayerActionsCallbackInterface = instance;
             if (instance != null)
@@ -1195,6 +1221,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Agachar.started += instance.OnAgachar;
                 @Agachar.performed += instance.OnAgachar;
                 @Agachar.canceled += instance.OnAgachar;
+                @Pausa.started += instance.OnPausa;
+                @Pausa.performed += instance.OnPausa;
+                @Pausa.canceled += instance.OnPausa;
             }
         }
     }
@@ -1365,6 +1394,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         void OnItem5(InputAction.CallbackContext context);
         void OnItem6(InputAction.CallbackContext context);
         void OnAgachar(InputAction.CallbackContext context);
+        void OnPausa(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

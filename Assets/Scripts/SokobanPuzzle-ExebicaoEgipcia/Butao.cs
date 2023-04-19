@@ -25,7 +25,7 @@ public class Butao : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (isinArea && inputController.PegarItem())
+        if (isinArea && inputController.MoverObjeto())
         {
             if (pathfinding.isMovingObject)
             {

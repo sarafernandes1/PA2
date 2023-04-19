@@ -36,6 +36,11 @@ public class InputController : MonoBehaviour
         return _playerControls.Player.PegarItem.triggered;
     }
 
+    public bool MoverObjeto()
+    {
+        return _playerControls.Player.PegarItem.triggered;
+    }
+
     public bool DescartarItem()
     {
         return _playerControls.Player.Descartar.triggered;
@@ -87,6 +92,11 @@ public class InputController : MonoBehaviour
     private void OnDisable()
     {
         _playerControls.Disable();
+    }
+
+    public bool Pausa()
+    {
+        return _playerControls.Player.Pausa.triggered;
     }
 }
 
