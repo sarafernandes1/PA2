@@ -34,9 +34,9 @@ Material:
     - _StrengthScalar: 5
     - _distance: 0
     - _distanceA: 0
-    - _distancia: 121.346344
+    - _distancia: 112.35656
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _LightDirection: {r: 0.00000005663697, g: 0.3116085, b: -0.9502106, a: 0}
-    - _LightPosition: {r: 107.63, g: 17.52, b: 138.1, a: 0}
+    - _LightDirection: {r: 0.000000068768685, g: 0.31725675, b: -0.9483397, a: 0}
+    - _LightPosition: {r: 114.5, g: 17.99, b: -4.67, a: 0}
   m_BuildTextureStacks: []

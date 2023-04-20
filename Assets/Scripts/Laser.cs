@@ -12,11 +12,11 @@ public class Laser : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
     }
 
-    private void OnCollisionEnter(Collision collision)
+    private void OnTriggerStay(Collider other)
     {
-      GameOver.gameOver=true;
+        GameOver.gameOver = true;
     }
+
 }
