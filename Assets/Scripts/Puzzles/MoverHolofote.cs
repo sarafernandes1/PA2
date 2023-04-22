@@ -6,6 +6,7 @@ public class MoverHolofote : MonoBehaviour
 {
     public InputController inputController;
     bool inArea = false;
+    public Light luz;
 
     void Start()
     {
@@ -18,7 +19,7 @@ public class MoverHolofote : MonoBehaviour
         {
             if (inputController.PegarItem())
             {
-                transform.Rotate(0.0f, 0.0f, 10.0f);
+                luz.transform.Rotate(0.0f, 0.0f, 10.0f);
             }
         }
     }
