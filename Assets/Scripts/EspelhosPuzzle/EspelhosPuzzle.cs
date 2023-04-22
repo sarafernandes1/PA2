@@ -36,7 +36,7 @@ public class EspelhosPuzzle : MonoBehaviour
 			for (int i = 0; i < reflections; i++)
 			{
 				if (Physics.Raycast(ray.origin, ray.direction, out hit, remainingLength))
-				{
+                {
                     if (hit.collider.tag != "Mirror")
                     {
                         break;

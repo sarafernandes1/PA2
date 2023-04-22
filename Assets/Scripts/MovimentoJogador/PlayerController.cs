@@ -70,6 +70,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+
     void PlayerAgachar()
     {
         if (agachar)

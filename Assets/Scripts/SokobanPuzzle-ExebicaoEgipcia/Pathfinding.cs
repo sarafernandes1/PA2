@@ -20,6 +20,7 @@ public class Pathfinding : MonoBehaviour
     bool chegou = false;
     public AudioSource audioAnimacaoEstatua;
     public AudioSource audioAndarSacrofago;
+    int counter = 0;
 
     void Awake()
     {
@@ -201,15 +202,24 @@ public class Pathfinding : MonoBehaviour
     {
         //if(Node)
 
-        audioAndarSacrofago.Play();
+        //audioAndarSacrofago.Play();
+
+        AudioManager.instance.Play("Mover");
+
         Debug.Log(seeker.position);
         FindPath(seeker.position, x, direita_cima);
 
         StartCoroutine(WaitForMovement());
-        seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 2.0f); //* Time.deltaTime * 6f);
 
+        //seeker.transform.position = Vector3.MoveTowards(seeker.position, new Vector3(targetPos.x, targetPos.y, targetPos.z), 2.0f); //* Time.deltaTime * 6f);
+        
         Debug.Log("Here!    " + seeker.position);
 
+    }
+
+    private void FixedUpdate()
+    {
+        if(isMovingObject ) seeker.position = Vector3.Lerp(seeker.position, targetPos, 0.1f);
     }
 
     IEnumerator WaitForMovement()
