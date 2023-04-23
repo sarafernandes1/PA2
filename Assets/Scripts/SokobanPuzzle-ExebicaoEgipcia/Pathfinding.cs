@@ -21,6 +21,7 @@ public class Pathfinding : MonoBehaviour
     public AudioSource audioAnimacaoEstatua;
     public AudioSource audioAndarSacrofago;
     int counter = 0;
+    public GameObject[] corrimoes;
 
     void Awake()
     {
@@ -41,6 +42,10 @@ public class Pathfinding : MonoBehaviour
             winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
             chegou = true;
             audioAnimacaoEstatua.Play();
+            Vector3 posCorrimao1 = corrimoes[0].transform.position;
+            corrimoes[0].transform.position = new Vector3(posCorrimao1.x-1.0f,posCorrimao1.y, posCorrimao1.z);
+            Vector3 posCorrimao2 = corrimoes[1].transform.position;
+            corrimoes[1].transform.position = new Vector3(posCorrimao1.x + 1.0f, posCorrimao1.y, posCorrimao1.z);
             foreach (var item in butoes)
             {
                 item.GetComponent<Butao>().dir = Butao.Direction.Win;
