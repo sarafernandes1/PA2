@@ -4,22 +4,23 @@ using UnityEngine;
 
 public class AtivarGuardas : MonoBehaviour
 {
-    //GameObject player;
+    GameObject player;
 
-    //void Start()
-    //{
-    //    player = GameObject.Find("Player");
-    //}
+    void Start()
+    {
+        player = GameObject.Find("Player");
+    }
 
-    //void Update()
-    //{
-    //    if (player.GetComponent<Inventario>().temObjetoFinal)
-    //    {
-    //        GameObject[] guardas = GameObject.FindGameObjectsWithTag("Guardas");
-    //        foreach (var guarda in guardas)
-    //        {
-    //            guarda.GetComponent<FieldOfView>().batalhaFinal = true;
-    //        }
-    //    }
-    //}
+    void Update()
+    {
+        if (player.GetComponent<Inventario>().temObjetoFinal)
+        {
+            Vitoria.artefacto=true;
+            GameObject[] guardas = GameObject.FindGameObjectsWithTag("Guardas");
+            foreach (var guarda in guardas)
+            {
+                guarda.GetComponent<FieldOfView>().batalhaFinal = true;
+            }
+        }
+    }
 }

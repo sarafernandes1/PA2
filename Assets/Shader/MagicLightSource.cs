@@ -5,7 +5,7 @@ using UnityEngine;
 [ExecuteInEditMode]
 public class MagicLightSource : MonoBehaviour
 {
-    public Material reveal;
+    public Material[] reveal;
     public Light light;
     public Camera camera;
     public int lightEstado = 0;
@@ -21,13 +21,19 @@ public class MagicLightSource : MonoBehaviour
     void Update()
     {
         //reveal.SetInt("_IsLightOn", 1);
-        reveal.SetVector("_LightPosition", player.transform.position);
-        reveal.SetVector("_LightDirection", -camera.transform.forward);
-        reveal.SetFloat("_LightAngle",40);
+        for (int i = 0; i < reveal.Length; i++)
+        {
+            reveal[i].SetVector("_LightPosition", player.transform.position);
+            reveal[i].SetVector("_LightDirection", -camera.transform.forward);
+            reveal[i].SetFloat("_LightAngle", 40);
+        }
     }
 
     public void ligarLuz(int a )
     {
-        reveal.SetInt("_IsLightOn", a);
+        for (int i = 0; i < reveal.Length; i++)
+        {
+            reveal[i].SetInt("_IsLightOn", a);
+        }
     }
 }

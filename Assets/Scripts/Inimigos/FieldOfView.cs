@@ -103,7 +103,7 @@ public class FieldOfView : MonoBehaviour
         else
         {
             agent.SetDestination(playerRef.transform.position);
-            agent.speed = 10;
+            agent.speed = 7;
         }
 
     }

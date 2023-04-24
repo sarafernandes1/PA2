@@ -63,7 +63,7 @@ Shader "Custom/FlashLight"
             fixed4 c = tex2D (_MainTex, IN.uv_MainTex) * _Color;
           
           
-            if(_distancia<=5){
+            if(_distancia<=15){
               o.Albedo = c.rgb;
             }
             else{

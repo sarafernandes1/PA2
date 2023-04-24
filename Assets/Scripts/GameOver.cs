@@ -9,11 +9,11 @@ public class GameOver : MonoBehaviour
 
     private void Update()
     {
-        if (gameOver)
-        {
-            GetComponent<Canvas>().enabled = true;
-            Time.timeScale = 0.0f;
-        }
+        //if (gameOver)
+        //{
+        //    GetComponent<Canvas>().enabled = true;
+        //    Time.timeScale = 0.0f;
+        //}
     }
 
     public void Recomecar()
