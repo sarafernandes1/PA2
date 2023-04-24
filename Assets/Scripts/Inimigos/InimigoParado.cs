@@ -65,6 +65,8 @@ public class InimigoParado : MonoBehaviour
                 StartCoroutine(pararSom());
                 if (pararDistracao)
                 {
+                    AudioManager.instance.Stop("Alarme");
+
                     objetoDistracao.GetComponent<Light>().enabled = false;
                     destraido = false;
                     parado = true;

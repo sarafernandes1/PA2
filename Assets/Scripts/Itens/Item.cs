@@ -108,13 +108,19 @@ public class Item : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (this.transform.parent == null) canvas.enabled = true;
-        item_collected = true;
+        if (other.gameObject.tag == "Player")
+        {
+            if (this.transform.parent == null) canvas.enabled = true;
+            item_collected = true;
+        }
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canvas.enabled = false;
-        item_collected = false;
+        if (other.gameObject.tag == "Player")
+        {
+            canvas.enabled = false;
+            item_collected = false;
+        }
     }
 }

@@ -18,13 +18,18 @@ public class Distracao : MonoBehaviour
     {
         if(inArea && inputController.PegarItem())
         {
+            AudioManager.instance.Play("Alarme");
             luz.enabled = !luz.enabled;
+
         }
 
         if (luz.enabled)
         {
             ResponderSom();
         }
+            
+
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -52,6 +57,8 @@ public class Distracao : MonoBehaviour
                     g.GetComponent<InimigoParado>().destraido = true;
                     g.GetComponent<InimigoParado>().posicao_destracao = transform.position;
                     g.GetComponent<InimigoParado>().objetoDistracao = luz.gameObject;
+
+                   
                 }
             }
         }

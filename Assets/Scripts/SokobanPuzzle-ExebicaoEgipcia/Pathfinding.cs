@@ -22,6 +22,7 @@ public class Pathfinding : MonoBehaviour
     public AudioSource audioAndarSacrofago;
     int counter = 0;
     public GameObject[] corrimoes;
+    public GameObject espelho;
 
     void Awake()
     {
@@ -38,6 +39,7 @@ public class Pathfinding : MonoBehaviour
         distance= Vector3.Distance(seeker.transform.position, transform.position);
         if (distance<=2.0f && !chegou)
         {
+            espelho.gameObject.SetActive(true);
             //winObject.GetComponent<Light>().enabled = true;
             winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
             chegou = true;
