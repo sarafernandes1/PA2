@@ -19,7 +19,8 @@ public class ObjetoLanterna : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        distance = Vector3.Distance(transform.position, player.transform.position);
-        reveal.SetFloat("_distancia", distance);
+         distance = Vector3.Distance(transform.position, player.transform.position);
+         reveal.SetFloat("_distancia", distance);
+
     }
 }

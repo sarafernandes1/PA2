@@ -16,6 +16,7 @@ public class Keypad : MonoBehaviour
     public bool animate;
 
     public GameObject vidro;
+    public bool porta = false;
 
     void Start()
     {
@@ -57,7 +58,7 @@ public class Keypad : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (text.text == "Granted" && animate)
+        if (text.text == "Granted" && animate && porta)
         {
             animator.SetBool("Open", true);
             //Debug.Log("aberto");

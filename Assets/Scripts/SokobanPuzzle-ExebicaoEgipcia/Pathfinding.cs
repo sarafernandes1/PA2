@@ -47,7 +47,7 @@ public class Pathfinding : MonoBehaviour
             Vector3 posCorrimao1 = corrimoes[0].transform.position;
             corrimoes[0].transform.position = new Vector3(posCorrimao1.x-1.0f,posCorrimao1.y, posCorrimao1.z);
             Vector3 posCorrimao2 = corrimoes[1].transform.position;
-            corrimoes[1].transform.position = new Vector3(posCorrimao1.x + 1.0f, posCorrimao1.y, posCorrimao1.z);
+            corrimoes[1].transform.position = new Vector3(posCorrimao2.x + 1.0f, posCorrimao2.y, posCorrimao2.z);
             foreach (var item in butoes)
             {
                 item.GetComponent<Butao>().dir = Butao.Direction.Win;

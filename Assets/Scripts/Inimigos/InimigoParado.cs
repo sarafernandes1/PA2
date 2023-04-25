@@ -32,7 +32,7 @@ public class InimigoParado : MonoBehaviour
     public Vector3 posicao_destracao;
     public GameObject objetoDistracao;
     bool pararDistracao = false;
-
+    public Animator animator;
 
     private void Start()
     {
@@ -62,6 +62,8 @@ public class InimigoParado : MonoBehaviour
             if(Vector3.Distance(transform.position, posicao_destracao) <=3.0f)
             {
                 agent.SetDestination(transform.position);
+
+
                 StartCoroutine(pararSom());
                 if (pararDistracao)
                 {

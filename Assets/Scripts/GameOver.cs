@@ -6,14 +6,15 @@ using UnityEngine.SceneManagement;
 public class GameOver : MonoBehaviour
 {
     public static bool gameOver = false;
+    public Canvas canvas;
 
     private void Update()
     {
-        //if (gameOver)
-        //{
-        //    GetComponent<Canvas>().enabled = true;
-        //    Time.timeScale = 0.0f;
-        //}
+        if (gameOver)
+        {
+            canvas.enabled = true;
+            Time.timeScale = 0.0f;
+        }
     }
 
     public void Recomecar()
