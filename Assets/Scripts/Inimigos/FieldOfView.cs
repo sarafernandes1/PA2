@@ -29,15 +29,17 @@ public class FieldOfView : MonoBehaviour
     public int index;
 
     public bool batalhaFinal=false;
-
+    public Animator anim = null;
 
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         inimigo = new InimigoController();
         agent = this.GetComponent<NavMeshAgent>();
         playerRef = GameObject.FindGameObjectWithTag("Player");
         StartCoroutine(FOVRoutine());
     }
+
 
     private IEnumerator FOVRoutine()
     {
@@ -77,6 +79,7 @@ public class FieldOfView : MonoBehaviour
 
                 // agent.speed = 2.0f;
                 agent.SetDestination(playerRef.transform.position);
+                anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
 
                 if (distanceToPlayer >= 10.0f)
                 {
@@ -153,6 +156,7 @@ public class FieldOfView : MonoBehaviour
 
     void Move()
     {
+        anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
 
         //agent.speed = 1.5f;
         inimigo.Patrulha(pontos_index, pontos, agent, this.transform);

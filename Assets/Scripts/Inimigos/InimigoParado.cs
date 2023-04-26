@@ -32,10 +32,12 @@ public class InimigoParado : MonoBehaviour
     public Vector3 posicao_destracao;
     public GameObject objetoDistracao;
     bool pararDistracao = false;
-    public Animator animator;
+    public Animator anim;
 
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+
         initialPosition = transform.position;
         initialRotation = transform.rotation;
         agent = this.GetComponent<NavMeshAgent>();
@@ -59,9 +61,10 @@ public class InimigoParado : MonoBehaviour
         if (destraido)
         {
             perseguir = false;
-            if(Vector3.Distance(transform.position, posicao_destracao) <=3.0f)
+            if (Vector3.Distance(transform.position, posicao_destracao) <= 3.0f)
             {
                 agent.SetDestination(transform.position);
+                //anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
 
 
                 StartCoroutine(pararSom());
@@ -74,16 +77,25 @@ public class InimigoParado : MonoBehaviour
                     parado = true;
                 }
             }
-            else agent.SetDestination(posicao_destracao);
+            else
+            {
+                agent.SetDestination(posicao_destracao);
+                //anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
+
+
+            }
         }
 
         if (perseguir)
         {
+           
+
             playerRef.GetComponent<Disfarce>().perseguidoEstado[index] = true;
             float distanceToPlayer = Vector3.Distance(transform.position, playerRef.transform.position);
 
             agent.speed = 1.5f;
             agent.SetDestination(playerRef.transform.position);
+            //anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
 
             if (distanceToPlayer >= 10.0f)
             {
@@ -103,6 +115,8 @@ public class InimigoParado : MonoBehaviour
                 if (transform.position != initialPosition)
                 {
                     agent.SetDestination(initialPosition);
+                  //  anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
+
 
                 }
                 float d = Vector3.Distance(transform.position, initialPosition);
@@ -112,6 +126,13 @@ public class InimigoParado : MonoBehaviour
                     parado = true;
                 }
             }
+        }
+
+        if (parado )
+        {
+            anim.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
+
+
         }
 
         if (displayMessage)

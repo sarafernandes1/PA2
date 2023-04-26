@@ -14,6 +14,7 @@ public class ControlarGadgets : MonoBehaviour
     int tGancho = 0;
 
     public Image luzImage, disfarceImage, ganchoImage;
+    float time = 0.0f;
 
     void Start()
     {
@@ -34,9 +35,9 @@ public class ControlarGadgets : MonoBehaviour
             tGancho = 0;
         }
         else if (inputController.ItemMao() == 1 &&
-            !gameObject.GetComponent<PlayerController>().gancho)
+            !gameObject.GetComponent<PlayerController>().gancho && time<=0)
         {
-
+            time = 30;
             disfarce = !disfarce;
             luz = false;
             gancho = false;
@@ -120,6 +121,7 @@ public class ControlarGadgets : MonoBehaviour
         {
             disfarceImage.color = Color.white;
             disfarce = false;
+            time -= Time.deltaTime;
         }
     }
 }

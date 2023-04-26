@@ -12,6 +12,8 @@ public class MoverEspelhos : MonoBehaviour
     public bool bloqueado = false;
     public bool z = false;
     int n_vez_direita=0, n_vez_esquerda=0;
+    public int n_vezes = 3;
+    public bool venus = false;
 
     void Start()
     {
@@ -22,7 +24,7 @@ public class MoverEspelhos : MonoBehaviour
     {
         if (inputController.PegarItem() && isinArea && !bloqueado)
         {
-            if (n_vez_direita >= 3)
+            if (n_vez_direita >= n_vezes)
             {
                 angle *= (-1);
                 n_vez_direita = 0;
@@ -35,6 +37,8 @@ public class MoverEspelhos : MonoBehaviour
             n_vez_direita += 1;
            
         }
+
+        if (n_vez_direita == 4 && venus) bloqueado = true;
 
         if (bloqueado) canvas.enabled = false;
     }

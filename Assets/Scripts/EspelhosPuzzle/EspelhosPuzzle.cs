@@ -62,8 +62,9 @@ public class EspelhosPuzzle : MonoBehaviour
 				}
 				else
 				{
-					lineRenderer.positionCount += 1;
-					lineRenderer.SetPosition(lineRenderer.positionCount - 1, ray.origin + ray.direction * remainingLength);
+						lineRenderer.positionCount += 1;
+						lineRenderer.SetPosition(lineRenderer.positionCount - 1, ray.origin + ray.direction * remainingLength);
+					
 				}
 			}
 		}
