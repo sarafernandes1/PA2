@@ -22,6 +22,8 @@ public class GrappingHook : MonoBehaviour
     public float y;
     public float y1;
 
+    public GameObject[] ganchos;
+    public GameObject ganchomaisProximo = null;
 
     void Start()
     {
@@ -32,13 +34,20 @@ public class GrappingHook : MonoBehaviour
         image.enabled = true;
         RaycastHit hit;
         Vector3 position = transform.position;
-        if (position.y >= y-4) position.y = y1;
-        else position.y = y;
+        //if (position.y >= y - 4) position.y = y1;
+        //else position.y = y;
 
+        //  position.y += 8.0f;
+
+        if(position.y != ganchomaisProximo.transform.position.y) position.y = ganchoProximo();
+
+        
         Ray ray = new Ray(position, camera.transform.forward);
+        
+
         Debug.DrawRay(ray.origin, ray.direction, Color.blue);
 
-        if (Physics.Raycast(ray, out hit, 20.0f))
+        if (Physics.Raycast(ray, out hit, 2000.0f))
         {
             if (hit.collider.tag != "Player")
             {
@@ -109,4 +118,22 @@ public class GrappingHook : MonoBehaviour
             irPosGancho = false;
         }
     }
+
+    public float ganchoProximo()
+    {
+        float d, d_minima=10000;
+
+            for (int i =0;i < ganchos.Length; i++)
+        {
+            d = Vector3.Distance(transform.position, ganchos[i].transform.position);
+            if (d < d_minima )
+            {
+                d_minima = d;
+                ganchomaisProximo = ganchos[i];
+            }
+        }
+
+        return ganchomaisProximo.transform.position.y;
+    }
+
 }

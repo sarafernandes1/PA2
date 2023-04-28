@@ -60,11 +60,11 @@ public class InimigoParado : MonoBehaviour
     {
         if (destraido)
         {
+            anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
             perseguir = false;
             if (Vector3.Distance(transform.position, posicao_destracao) <= 3.0f)
             {
                 agent.SetDestination(transform.position);
-                //anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
 
 
                 StartCoroutine(pararSom());
@@ -95,7 +95,7 @@ public class InimigoParado : MonoBehaviour
 
             agent.speed = 1.5f;
             agent.SetDestination(playerRef.transform.position);
-            //anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
+            anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
 
             if (distanceToPlayer >= 10.0f)
             {
@@ -122,17 +122,16 @@ public class InimigoParado : MonoBehaviour
                 float d = Vector3.Distance(transform.position, initialPosition);
                 if (d < 0.5f)
                 {
-                    transform.rotation = Quaternion.RotateTowards(transform.rotation, initialRotation, 1.5f);
+                    transform.rotation = Quaternion.RotateTowards(transform.rotation, initialRotation, 1.0f);
                     parado = true;
                 }
             }
         }
 
-        if (parado )
+        float d1 = Vector3.Distance(transform.position, initialPosition);
+        if (d1 < 0.2f)
         {
             anim.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
-
-
         }
 
         if (displayMessage)

@@ -3,7 +3,12 @@ guid: c6e0f787a65f9ee4da41d4a82f1c32dc
 ModelImporter:
   serializedVersion: 21300
   internalIDToNameTable: []
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Texture2D
+      assembly: UnityEngine.CoreModule
+      name: lambert12_Base_Color
+    second: {fileID: 2800000, guid: 2d6c624e33ecd604ba38aa4f715bcc00, type: 3}
   materials:
     materialImportMode: 2
     materialName: 0

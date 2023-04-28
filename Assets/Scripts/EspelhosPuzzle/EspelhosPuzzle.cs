@@ -17,6 +17,8 @@ public class EspelhosPuzzle : MonoBehaviour
 
 	public GameObject ultimoEspelho;
 	public bool completo = false;
+	public bool Venus = false;
+	public Animator animator;
 
 	private void Awake()
 	{
@@ -70,10 +72,18 @@ public class EspelhosPuzzle : MonoBehaviour
 		}
 		if(Vector3.Distance(lineRenderer.GetPosition(lineRenderer.positionCount-1), ultimoEspelho.transform.position) <= 3.0f)
         {
-			ray = new Ray(ultimoEspelho.transform.position, objeto.transform.position);
-			lineRenderer.positionCount +=1;
-			lineRenderer.SetPosition(lineRenderer.positionCount-1 , objeto.transform.position);
-			completo = true;
+			if (!Venus)
+			{
+				ray = new Ray(ultimoEspelho.transform.position, objeto.transform.position);
+				lineRenderer.positionCount += 1;
+				lineRenderer.SetPosition(lineRenderer.positionCount - 1, objeto.transform.position);
+				completo = true;
+			}
+            else
+            {
+				completo = true;
+				animator.SetBool("Open", true);
+			}
         }
 	}
 }

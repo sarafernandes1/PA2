@@ -15,6 +15,7 @@ public class MoverEspelhos : MonoBehaviour
     public int n_vezes = 3;
     public bool venus = false;
 
+
     void Start()
     {
         
@@ -38,7 +39,7 @@ public class MoverEspelhos : MonoBehaviour
            
         }
 
-        if (n_vez_direita == 4 && venus) bloqueado = true;
+        if (n_vez_direita == n_vezes && venus) bloqueado = true;
 
         if (bloqueado) canvas.enabled = false;
     }
