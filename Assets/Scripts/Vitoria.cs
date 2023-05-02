@@ -23,6 +23,17 @@ public class Vitoria : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (artefacto) canvas.enabled=true;
+        if (artefacto)
+        {
+
+            canvas.enabled = true;
+            StartCoroutine(espera());
+        }
+    }
+
+    IEnumerator espera()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Time.timeScale = 0.0f;
     }
 }

@@ -10,8 +10,10 @@ public class MoverCarro : MonoBehaviour
     bool colocado = false;
     GameObject player;
     public GameObject[] engine;
-    bool rodar=false;
+    bool rodar=false, rodarBarco=false;
     public Canvas canvas;
+    public bool carro_, barco_;
+    public int n_vezes;
 
     void Start()
     {
@@ -26,6 +28,13 @@ public class MoverCarro : MonoBehaviour
             engine[1].transform.Rotate(0, 0, -10.0f * Time.deltaTime);
             engine[2].transform.Rotate(0, 0, 20.0f * Time.deltaTime);
             carro.transform.Rotate(0.0f, 10.0f * Time.deltaTime, 0.0f);
+        }
+
+        if (rodarBarco)
+        {
+                engine[0].transform.Rotate(0, 0, 10.0f * Time.deltaTime);
+            
+            carro.transform.Rotate(0.0f, 0.6f * Time.deltaTime, 0.0f);
         }
     }
 
@@ -45,7 +54,7 @@ public class MoverCarro : MonoBehaviour
 
         //if (!colocado)
         //{
-            if (inArea/* && GetComponent<MeshRenderer>().enabled*/)
+            if (inArea/* && GetComponent<MeshRenderer>().enabled*/ && carro_)
             {
 
                 if (inputController.PegarItem() && !rodar)
@@ -58,13 +67,35 @@ public class MoverCarro : MonoBehaviour
             
             }
         //}
-       //if(colocado)  StartCoroutine(espera());
+        //if(colocado)  StartCoroutine(espera());
+
+        if (inArea/* && GetComponent<MeshRenderer>().enabled*/ && barco_ && n_vezes>0)
+        {
+
+            if (inputController.PegarItem() && !rodarBarco)
+            {
+
+
+                StartCoroutine(espera1());
+                //rodarBarco = true;
+                n_vezes--;
+            }
+
+
+        }
     }
 
     IEnumerator espera()
     {
         yield return new WaitForSeconds(2.0f);
         rodar = false;
+    }
+
+    IEnumerator espera1()
+    {
+        rodarBarco = true;
+        yield return new WaitForSeconds(2f);
+        rodarBarco = false;
     }
 
     private void OnTriggerStay(Collider other)

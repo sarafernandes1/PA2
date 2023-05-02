@@ -37,8 +37,8 @@ public class MagicLightSource : MonoBehaviour
             reveal[0].SetFloat("_distancia", 1.0f);
                    
             reveal[0].SetVector("_LightPosition", transform.position);
-            reveal[0].SetVector("_LightDirection", transform.forward);
-            reveal[0].SetFloat("_LightAngle", 40);
+            reveal[0].SetVector("_LightDirection", -transform.forward);
+            reveal[0].SetFloat("_LightAngle", 20);
         }
     }
 

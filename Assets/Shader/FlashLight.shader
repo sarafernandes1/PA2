@@ -3,7 +3,7 @@ Shader "Custom/FlashLight"
    Properties
     {
         _Color ("Color", Color) = (1,1,1,1)
-        _MainTex ("Albedo (RGB)", 2D) = "white" {}
+        _MainTex ("Albedo (RGB)", 2D) = "defaulttexture" {}
         _Glossiness ("Smoothness", Range(0,1)) = 0.5
         _Metallic ("Metallic", Range(0,1)) = 0.0
         _LightPosition("Light Position", Vector) = (0,0,0,0)
@@ -17,6 +17,7 @@ Shader "Custom/FlashLight"
     }
     SubShader
     {
+   
         Tags { "RenderType"="Transparent" "Queue" = "Transparent" }
         LOD 200
 
@@ -48,7 +49,7 @@ Shader "Custom/FlashLight"
         // Add instancing support for this shader. You need to check 'Enable Instancing' on materials that use the shader.
         // See https://docs.unity3d.com/Manual/GPUInstancing.html for more information about instancing.
         // #pragma instancing_options assumeuniformscaling
-        UNITY_INSTANCING_BUFFER_START(Props)
+       UNITY_INSTANCING_BUFFER_START(Props)
             // put more per-instance properties here
         UNITY_INSTANCING_BUFFER_END(Props)
 
@@ -74,7 +75,7 @@ Shader "Custom/FlashLight"
             o.Metallic = _Metallic;
             o.Smoothness = _Glossiness;
 
-            o.Alpha = (strength * c.a);
+            o.Alpha = (strength* c.a);
         }
         ENDCG
     }

@@ -44,7 +44,8 @@ public class CompletarEstatua : MonoBehaviour
 
         if (numero_pecas==2)
         {
-            Destroy(porta.gameObject);
+            //Destroy(porta.gameObject);
+            ObjetoFinal.estatuaCompleta = true;
         }
 
         if(numero_pecas==1 && alavanca)

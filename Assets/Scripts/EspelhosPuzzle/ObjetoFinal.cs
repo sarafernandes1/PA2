@@ -7,6 +7,11 @@ public class ObjetoFinal : MonoBehaviour
     public LineRenderer[] linhas_espelhos;
     public bool[] espelhos_conectados;
     public GameObject porta;
+    public static bool estatuaCompleta = false;
+    public bool lasers = false;
+
+    public Animator animator;
+
 
     void Start()
     {
@@ -32,8 +37,14 @@ public class ObjetoFinal : MonoBehaviour
         {
             if (espelhos_conectados[i] && espelhos_conectados[i+1])
             {
-                Destroy(porta.gameObject);
+                // Destroy(porta.gameObject);
+                lasers = true;
             }
+        }
+
+        if(lasers && estatuaCompleta)
+        {
+            animator.SetBool("Move", true);
         }
 
     }
