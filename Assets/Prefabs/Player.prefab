@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1217655215}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.066, y: 0, z: 0}
+  m_LocalPosition: {x: 1.066, y: 0, z: 1.75}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -49,6 +49,8 @@ GameObject:
   - component: {fileID: 1296223895}
   - component: {fileID: 1296223896}
   - component: {fileID: 1296223897}
+  - component: {fileID: 229341053}
+  - component: {fileID: 229341042}
   m_Layer: 3
   m_Name: Player
   m_TagString: Player
@@ -102,7 +104,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10303, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -153,7 +155,7 @@ MonoBehaviour:
   inputController: {fileID: 0}
   cameraTransform: {fileID: 0}
   eyes: {fileID: 7626300122500810837}
-  playerSpeed: 5
+  playerSpeed: 7
   jumpHeight: 1
   groundedPlayer: 0
   gravityValue: -9.81
@@ -201,7 +203,14 @@ MonoBehaviour:
   objeto_mao: {fileID: 1217655215}
   index: -1
   item: 0
-  inventarioImagens: []
+  inventarioImagens:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  temObjetoFinal: 0
 --- !u!114 &1296223895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -220,7 +229,9 @@ MonoBehaviour:
   gancho: 0
   luzObject: {fileID: 7626300122705743797}
   tempo: {fileID: 0}
+  disfarceTempo: {fileID: 0}
   image: {fileID: 0}
+  disfarceCanvas: {fileID: 0}
   luzImage: {fileID: 0}
   disfarceImage: {fileID: 0}
   ganchoImage: {fileID: 0}
@@ -263,7 +274,121 @@ MonoBehaviour:
   isHitingGancho: 0
   inputController: {fileID: 0}
   mao: {fileID: 1217655216}
-  y: 5
+  y: 20
+  y1: 28
+  ganchos:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  ganchomaisProximo: {fileID: 0}
+--- !u!82 &229341053
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626300122079349763}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 4a869a2abac7e96498dd83c5fecde3ee, type: 3}
+  m_PlayOnAwake: 1
+  m_Volume: 0.563
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!114 &229341042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626300122079349763}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0af1671690af2f3439c230e17aeb10b9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7626300122500810842
 GameObject:
   m_ObjectHideFlags: 0
@@ -305,13 +430,14 @@ GameObject:
   m_Component:
   - component: {fileID: 7626300122705743796}
   - component: {fileID: 7626300122705743798}
+  - component: {fileID: 478714233}
   m_Layer: 3
   m_Name: Lanterna
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &7626300122705743796
 Transform:
   m_ObjectHideFlags: 0
@@ -334,12 +460,12 @@ Light:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7626300122705743797}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 10
   m_Type: 0
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 4
+  m_Color: {r: 0.54148436, g: 0.24905658, b: 1, a: 1}
+  m_Intensity: 6
   m_Range: 10
   m_SpotAngle: 80
   m_InnerSpotAngle: 8
@@ -389,3 +515,26 @@ Light:
   m_UseViewFrustumForShadowCasterCull: 1
   m_ShadowRadius: 0
   m_ShadowAngle: 0
+--- !u!114 &478714233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7626300122705743797}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0019aa7b685b61a4ab6ba792b11da737, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  reveal:
+  - {fileID: 2100000, guid: b00e617e12ee5c247acd6fbc8c826e0c, type: 2}
+  - {fileID: 2100000, guid: cd635c6076a84124ba6f3d3bcdff880b, type: 2}
+  - {fileID: 2100000, guid: 84eacd0b76904494d9bfd6a6fc767e53, type: 2}
+  - {fileID: 2100000, guid: c6c87d88aebcb694aba9a909311cebc0, type: 2}
+  - {fileID: 2100000, guid: bf911c2e2d891314eb465adebf4f5d9d, type: 2}
+  light: {fileID: 7626300122705743798}
+  camera: {fileID: 0}
+  lightEstado: 0
+  player: {fileID: 7626300122079349763}
+  holofote: 0

@@ -45,7 +45,8 @@ public class PlayerController : MonoBehaviour
             }
 
             Vector3 camRotation = cameraTransform.eulerAngles;
-            transform.eulerAngles = new Vector3(transform.eulerAngles.x, camRotation.y, transform.eulerAngles.z);
+           // transform.eulerAngles = new Vector3(transform.eulerAngles.x, camRotation.y, transform.eulerAngles.z);
+            transform.rotation = Quaternion.Slerp(transform.rotation, cameraTransform.rotation, 4.5f * Time.deltaTime);
 
             Vector2 playerMovement = inputController.GetPlayerMoviment();
             Vector3 move = new Vector3(playerMovement.x, 0, playerMovement.y);

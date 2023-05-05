@@ -42,7 +42,7 @@ public class CompletarEstatua : MonoBehaviour
             }
         }
 
-        if (numero_pecas==2)
+        if (numero_pecas==3)
         {
             //Destroy(porta.gameObject);
             ObjetoFinal.estatuaCompleta = true;
@@ -84,6 +84,15 @@ public class CompletarEstatua : MonoBehaviour
                 //pecas_estatua[i].GetComponentInChildren<MeshRenderer>().enabled = true;
                 numero_pecas += 1;
             }
+
+        if (peca_jogador_mao.name == "Capacete")
+        {
+            player.GetComponent<Inventario>().RetirarItemInventario(index);
+            Destroy(peca_jogador_mao);
+            pecas_estatua[2].SetActive(true);
+            //pecas_estatua[i].GetComponentInChildren<MeshRenderer>().enabled = true;
+            numero_pecas += 1;
+        }
         
     }
 

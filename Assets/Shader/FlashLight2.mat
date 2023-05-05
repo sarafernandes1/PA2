@@ -10,7 +10,8 @@ Material:
   m_Name: FlashLight2
   m_Shader: {fileID: 4800000, guid: 691231ad3f49cef4fa097db0fdcb636b, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords: []
+  m_InvalidKeywords:
+  - _ISLIGHTON_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -26,14 +27,14 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Glossiness: 0
-    - _IsLightOn: 0
+    - _Glossiness: 1
+    - _IsLightOn: 1
     - _LightAngle: 40
     - _Metallic: 0
     - _StrengthScalar: 40
-    - _distancia: 128.2355
+    - _distancia: 104.38666
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
-    - _LightDirection: {r: -0.00000003326668, g: 0.32853276, b: -0.9444926, a: 0}
-    - _LightPosition: {r: 12.9, g: 1.858, b: -15.24, a: 0}
+    - _LightDirection: {r: 0.000000026921278, g: 0.3312979, b: -0.9435262, a: 0}
+    - _LightPosition: {r: 11.3, g: 1.858, b: 54.51, a: 0}
   m_BuildTextureStacks: []
