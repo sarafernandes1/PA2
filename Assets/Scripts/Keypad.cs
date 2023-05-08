@@ -17,6 +17,7 @@ public class Keypad : MonoBehaviour
 
     public GameObject vidro;
     public bool porta = false;
+    public GameObject holofote1, holofote2;
 
     void Start()
     {
@@ -35,7 +36,11 @@ public class Keypad : MonoBehaviour
         {
             text.text = "Granted";
             Destroy(vidro.gameObject);
-
+            if (holofote1 != null)
+            {
+                holofote1.GetComponent<Light>().enabled = false;
+                holofote2.GetComponent<Light>().enabled = false;
+            }
         }
         else
         {

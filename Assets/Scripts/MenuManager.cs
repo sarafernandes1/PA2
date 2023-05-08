@@ -28,6 +28,11 @@ public class MenuManager : MonoBehaviour
         pausa.enabled = false;
     }
 
+    public void IniciarJogo()
+    {
+        SceneManager.LoadScene(1);
+    }
+
     public void Sair()
     {
         Time.timeScale = 1.0f;

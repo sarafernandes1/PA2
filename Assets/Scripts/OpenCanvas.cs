@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UIElements;
-using static UnityEditor.Progress;
+//using static UnityEditor.Progress;
 
 public class OpenCanvas : MonoBehaviour
 {
@@ -18,14 +18,20 @@ public class OpenCanvas : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        reach=true;
-        Pegar.enabled = true;
+        if (other.tag == "Player")
+        {
+            reach = true;
+            Pegar.enabled = true;
+        }
     }
 
     void OnTriggerExit(Collider other)
     {
-        reach=false;
-        Pegar.enabled = false;
+        if (other.tag == "Player")
+        {
+            reach = false;
+            Pegar.enabled = false;
+        }
     }
 
     void Update()
