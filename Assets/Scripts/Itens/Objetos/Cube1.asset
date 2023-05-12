@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eda91105340e440b38d8d1b8902d8e, type: 3}
   m_Name: Cube1
   m_EditorClassIdentifier: 
-  nome: Cubo
+  nome: Alavanca
   imagem_objeto: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
-  description: Chave
+  description: Parte de uma alavanca

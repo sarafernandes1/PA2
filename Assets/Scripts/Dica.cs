@@ -33,5 +33,6 @@ public class Dica : MonoBehaviour
 
         canvas.gameObject.SetActive( false);
         Time.timeScale = 1.0f;
+        gameObject.SetActive(false);
     }
 }
