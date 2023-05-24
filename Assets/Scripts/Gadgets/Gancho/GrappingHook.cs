@@ -24,9 +24,13 @@ public class GrappingHook : MonoBehaviour
 
     public GameObject[] ganchos;
     public GameObject ganchomaisProximo = null;
+    public Animator anim = null;
+
 
     void Start()
     {
+        anim = GetComponentInChildren<Animator>();
+
     }
 
     void Update()
@@ -78,6 +82,7 @@ public class GrappingHook : MonoBehaviour
 
         if (isHitingGancho && inputController.PegarItem())
         {
+            anim.SetFloat("Speed", 2.0f, 0.001f, Time.deltaTime);
             irPosGancho = true;
         }
 

@@ -42,7 +42,7 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Colunas: 175
+    - _Colunas: 200
     - _Linhas: 200
     m_Colors: []
   m_BuildTextureStacks: []

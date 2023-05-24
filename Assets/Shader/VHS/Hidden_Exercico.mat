@@ -41,6 +41,6 @@ Material:
     - _Colunas: 200
     - _Linhas: 200
     - _Slider1: 0
-    - _Slider2: 0
+    - _Slider2: 0.56
     m_Colors: []
   m_BuildTextureStacks: []

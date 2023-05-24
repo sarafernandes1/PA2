@@ -23,6 +23,8 @@ public class Pathfinding : MonoBehaviour
     int counter = 0;
     public GameObject[] corrimoes;
     public GameObject espelho;
+    public GameObject cameraPrincipal, camaraCutScene;
+    public GameObject player;
 
     void Awake()
     {
@@ -39,6 +41,10 @@ public class Pathfinding : MonoBehaviour
         distance= Vector3.Distance(seeker.transform.position, transform.position);
         if (distance<=2.0f && !chegou)
         {
+            cameraPrincipal.SetActive(false);
+            player.SetActive(false);
+            camaraCutScene.SetActive(true);
+
             espelho.gameObject.SetActive(true);
             //winObject.GetComponent<Light>().enabled = true;
             winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
@@ -52,7 +58,9 @@ public class Pathfinding : MonoBehaviour
             {
                 item.GetComponent<Butao>().dir = Butao.Direction.Win;
 
+
             }
+            StartCoroutine(cutScene());
         }
 
         //FindPath(seeker.position, target.position);
@@ -67,6 +75,14 @@ public class Pathfinding : MonoBehaviour
         //}
     }
 
+    IEnumerator cutScene()
+    {
+        yield return new WaitForSeconds(2.0f);
+        camaraCutScene.SetActive(false);
+        cameraPrincipal.SetActive(true);
+        player.SetActive(true);
+
+    }
 
     private void OnTriggerStay(Collider other)
     {

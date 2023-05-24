@@ -9,9 +9,9 @@ public class ObjetoFinal : MonoBehaviour
     public GameObject porta;
     public static bool estatuaCompleta = false;
     public bool lasers = false;
-
     public Animator animator;
-
+    public GameObject cameraPrincipal, cameraCutScene, player;
+    private bool CutScene = false;
 
     void Start()
     {
@@ -42,10 +42,23 @@ public class ObjetoFinal : MonoBehaviour
             }
         }
 
-        if(lasers && estatuaCompleta)
+        if(lasers && estatuaCompleta && !CutScene)
         {
+            cameraCutScene.SetActive(true);
+            cameraPrincipal.SetActive(false);
+            player.SetActive(false);
+            CutScene = true;
             animator.SetBool("Move", true);
         }
 
+        StartCoroutine(cutScene());
+    }
+
+    IEnumerator cutScene()
+    {
+        yield return new WaitForSeconds(8.0f);
+        cameraCutScene.SetActive(false);
+        cameraPrincipal.SetActive(true);
+        player.SetActive(true);
     }
 }

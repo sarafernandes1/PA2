@@ -35,7 +35,7 @@ Material:
     - _StrengthScalar: 5
     - _distance: 0
     - _distanceA: 0
-    - _distancia: 205.93224
+    - _distancia: 189.70383
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _LightDirection: {r: 0.000000011384576, g: 0.3172568, b: -0.94833964, a: 0}

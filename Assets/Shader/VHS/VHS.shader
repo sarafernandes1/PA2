@@ -78,6 +78,7 @@ Shader "Hidden/VHS"
 
             fixed4 frag (v2f i) : SV_Target
             {
+              fixed4 vhsCanvas = tex2D(_Record, i.uv);
 
             // Pixel
                float2 uv = i.uv;
@@ -125,7 +126,7 @@ Shader "Hidden/VHS"
                 float grayScale=(tex.r+tex.g+tex.b)/3;
                 fixed4 tex2= tex2D(_DistorTexture1, grayScale)*0.2f;
 
-                fixed4 vhsCanvas = tex2D(_Record, uv);
+              
 
                 // Distorção
               UVS.y += sin(_Time*1.0f).y;

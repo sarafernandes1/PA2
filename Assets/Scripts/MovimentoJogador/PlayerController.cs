@@ -21,10 +21,12 @@ public class PlayerController : MonoBehaviour
     bool agachar = false;
     public bool gancho = false;
 
+    public Animator anim = null;
+    public GameObject jogador_modelo;
     private void Start()
     {
+        anim = GetComponentInChildren<Animator>();
         controller = GetComponent<CharacterController>();
-          //Cursor.visible = false;
     }
 
     void Update()
@@ -39,13 +41,14 @@ public class PlayerController : MonoBehaviour
 
             groundedPlayer = controller.isGrounded;
 
+            
+
             if (groundedPlayer && playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
             }
 
             Vector3 camRotation = cameraTransform.eulerAngles;
-           // transform.eulerAngles = new Vector3(transform.eulerAngles.x, camRotation.y, transform.eulerAngles.z);
             transform.rotation = Quaternion.Slerp(transform.rotation, cameraTransform.rotation, 4.5f * Time.deltaTime);
 
             Vector2 playerMovement = inputController.GetPlayerMoviment();
@@ -59,6 +62,23 @@ public class PlayerController : MonoBehaviour
 
             controller.Move(move * Time.deltaTime * playerSpeed);
 
+           
+                if (move.x != 0 || move.z != 0)
+                {
+                    float y = 0;
+                    anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
+                }
+                else
+                {
+                    anim.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
+                }
+            
+
+            if (inputController.GetPlayerJumpInThisFrame())
+            {
+                anim.SetTrigger("Jump");
+            }
+
             // Changes the height position of the player..
             if (inputController.GetPlayerJumpInThisFrame() && groundedPlayer)
             {
@@ -67,7 +87,7 @@ public class PlayerController : MonoBehaviour
 
             playerVelocity.y += gravityValue * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
-
+           
         }
     }
 

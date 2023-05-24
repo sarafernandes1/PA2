@@ -94,7 +94,7 @@ Shader "Hidden/Exercico"
                    float grayScale=(col.r+col.g+col.b)/3;
                    fixed4 tex= tex2D(_GradientMap, grayScale);
                 
-                return tex + disTex;
+                return tex + disTex ;
             }
             ENDCG
         }

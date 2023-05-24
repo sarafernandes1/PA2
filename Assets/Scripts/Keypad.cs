@@ -19,6 +19,9 @@ public class Keypad : MonoBehaviour
     public bool porta = false;
     public GameObject holofote1, holofote2;
 
+    public GameObject cameraPrincipal, camaraCutScene, player;
+    public bool CutScene = false;
+
     void Start()
     {
 
@@ -55,6 +58,12 @@ public class Keypad : MonoBehaviour
 
     public void Exit()
     {
+        if (camaraCutScene != null && CutScene)
+        {
+            cameraPrincipal.SetActive(false);
+            camaraCutScene.SetActive(true);
+            player.SetActive(false);
+        }
         keypad.enabled=false;
         Time.timeScale = 1.0f;  
         //input.GetComponent <InputController> ().enabled = false;
@@ -66,8 +75,12 @@ public class Keypad : MonoBehaviour
         if (text.text == "Granted" && animate && porta)
         {
             animator.SetBool("Open", true);
+            CutScene = true;
+           
             //Debug.Log("aberto");
         }
+
+        if(CutScene) StartCoroutine(cutScene());
 
         if (keypad.enabled)
         {
@@ -75,5 +88,14 @@ public class Keypad : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState= CursorLockMode.None;
         }
+    }
+
+    IEnumerator cutScene()
+    {
+        yield return new WaitForSeconds(7.0f);
+        camaraCutScene.SetActive(false);
+        cameraPrincipal.SetActive(true);
+        player.SetActive(true);
+        CutScene = false;
     }
 }
