@@ -18,6 +18,10 @@ public class CompletarEstatua : MonoBehaviour
 
     public bool alavanca;
 
+
+    public GameObject camPrincipal, camCutScene;
+    bool CutScene = false;
+
     void Start()
     {
         
@@ -53,8 +57,18 @@ public class CompletarEstatua : MonoBehaviour
             gameObject.GetComponent<Alavanca>().a = true;
             StartCoroutine(desativar());
         }
+
+        if (CutScene) StartCoroutine(cutScene());
     }
 
+     IEnumerator cutScene()
+    {
+        yield return new WaitForSeconds(12.0f);
+        camCutScene.SetActive(false);
+        camPrincipal.SetActive(true);
+        player.SetActive(true);
+        CutScene = false;
+    }
         IEnumerator desativar()
     {
         yield return new WaitForSeconds(0.5f);
@@ -64,6 +78,9 @@ public class CompletarEstatua : MonoBehaviour
 
     public void ColocarPecaestatua()
     {
+        camCutScene.SetActive(true);
+        player.SetActive(false);
+        CutScene = true;
         int i = 0;
             if (peca_jogador_mao.name== "US_Sword_")
             {

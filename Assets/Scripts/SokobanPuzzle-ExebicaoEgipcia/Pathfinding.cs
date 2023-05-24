@@ -25,7 +25,7 @@ public class Pathfinding : MonoBehaviour
     public GameObject espelho;
     public GameObject cameraPrincipal, camaraCutScene;
     public GameObject player;
-
+    bool CutScene = false;
     void Awake()
     {
         grid = GetComponent<Grid>();
@@ -39,12 +39,10 @@ public class Pathfinding : MonoBehaviour
     void Update()
     {
         distance= Vector3.Distance(seeker.transform.position, transform.position);
-        if (distance<=2.0f && !chegou)
+        if (distance<=2.0f && !chegou )
         {
-            cameraPrincipal.SetActive(false);
             player.SetActive(false);
-            camaraCutScene.SetActive(true);
-
+            CutScene = true;
             espelho.gameObject.SetActive(true);
             //winObject.GetComponent<Light>().enabled = true;
             winObject.GetComponent<Animation>().Play("Armature|BalancaMove");
@@ -60,8 +58,18 @@ public class Pathfinding : MonoBehaviour
 
 
             }
-            StartCoroutine(cutScene());
+          
         }
+
+        if (CutScene)
+        {
+           // cameraPrincipal.SetActive(false);
+           
+            camaraCutScene.SetActive(true);
+           
+        }
+
+        StartCoroutine(cutScene());
 
         //FindPath(seeker.position, target.position);
         //if (seeker.transform.position.y <= -100)
@@ -77,11 +85,11 @@ public class Pathfinding : MonoBehaviour
 
     IEnumerator cutScene()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(14.0f);
         camaraCutScene.SetActive(false);
         cameraPrincipal.SetActive(true);
         player.SetActive(true);
-
+        CutScene = false;
     }
 
     private void OnTriggerStay(Collider other)
