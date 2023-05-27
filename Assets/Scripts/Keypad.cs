@@ -60,10 +60,10 @@ public class Keypad : MonoBehaviour
     {
         if (camaraCutScene != null && CutScene)
         {
-            cameraPrincipal.SetActive(false);
             camaraCutScene.SetActive(true);
             player.SetActive(false);
         }
+        if (CutScene) StartCoroutine(cutScene());
         keypad.enabled=false;
         Time.timeScale = 1.0f;  
         //input.GetComponent <InputController> ().enabled = false;
@@ -80,7 +80,7 @@ public class Keypad : MonoBehaviour
             //Debug.Log("aberto");
         }
 
-        if(CutScene) StartCoroutine(cutScene());
+       
 
         if (keypad.enabled)
         {
@@ -92,7 +92,7 @@ public class Keypad : MonoBehaviour
 
     IEnumerator cutScene()
     {
-        yield return new WaitForSeconds(7.0f);
+        yield return new WaitForSeconds(12.0f);
         camaraCutScene.SetActive(false);
         cameraPrincipal.SetActive(true);
         player.SetActive(true);
