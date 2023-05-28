@@ -17,12 +17,12 @@ public class PlayerController : MonoBehaviour
     public float gravityValue = -9.81f;
     Vector3 initialEyesPosition;
     Vector3 posicao_agachar;
-    int i = 0;
     bool agachar = false;
     public bool gancho = false;
 
     public Animator anim = null;
     public GameObject jogador_modelo;
+
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
@@ -33,6 +33,8 @@ public class PlayerController : MonoBehaviour
     {
         if (!gancho)
         {
+            Vector3 movementDirection = new Vector3(inputController.GetPlayerMoviment().x, 0, inputController.GetPlayerMoviment().y);
+            Vector3 mD = movementDirection;
             if (inputController.Agachar())
             {
                 agachar = !agachar;
@@ -41,38 +43,27 @@ public class PlayerController : MonoBehaviour
 
             groundedPlayer = controller.isGrounded;
 
-            
-
             if (groundedPlayer && playerVelocity.y < 0)
             {
                 playerVelocity.y = 0f;
             }
 
             Vector3 camRotation = cameraTransform.eulerAngles;
-            transform.rotation = Quaternion.Slerp(transform.rotation, cameraTransform.rotation, 4.5f * Time.deltaTime);
 
             Vector2 playerMovement = inputController.GetPlayerMoviment();
-            Vector3 move = new Vector3(playerMovement.x, 0, playerMovement.y);
+            Vector3 move = transform.right * mD.x + transform.forward * mD.z;
 
-            //move.z = w+s; move.x = a+d; forward = para onde estamos a olhar; right = movimento dos lados
-            move = transform.forward * move.z + transform.right * move.x;
-            move.y = 0f;
+            controller.Move(move * playerSpeed * Time.deltaTime);
 
-            move.Normalize(); //para evitar movimento mais rápido na diagonal 
-
-            controller.Move(move * Time.deltaTime * playerSpeed);
-
-           
-                if (move.x != 0 || move.z != 0)
-                {
-                    float y = 0;
-                    anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
-                }
-                else
-                {
-                    anim.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
-                }
-            
+            if (move.x != 0 || move.z != 0)
+            {
+                float y = 0;
+                anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
+            }
+            else
+            {
+                anim.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
+            }
 
             if (inputController.GetPlayerJumpInThisFrame())
             {
@@ -85,9 +76,11 @@ public class PlayerController : MonoBehaviour
                 playerVelocity.y += Mathf.Sqrt(jumpHeight * -3.0f * gravityValue);
             }
 
+            float y1 = inputController.Turning() * 150.0f * Time.deltaTime;
+            transform.Rotate(Vector3.up * y1);
+
             playerVelocity.y += gravityValue * Time.deltaTime;
             controller.Move(playerVelocity * Time.deltaTime);
-           
         }
     }
 

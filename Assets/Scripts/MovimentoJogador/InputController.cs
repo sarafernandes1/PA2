@@ -31,6 +31,11 @@ public class InputController : MonoBehaviour
         return _playerControls.Player.Look.ReadValue<Vector2>();
     }
 
+    public float Turning()
+    {
+        return _playerControls.Player.Turning.ReadValue<float>();
+    }
+
     public bool PegarItem()
     {
         return _playerControls.Player.PegarItem.triggered;
