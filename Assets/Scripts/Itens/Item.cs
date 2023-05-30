@@ -50,12 +50,13 @@ public class Item : MonoBehaviour
     void RotateObject()
     {
         Vector2 moviment = inputController.GetPlayerMoviment();
+        float AD = inputController.Turning();
 
-        if (moviment.x < 0)
+        if (AD < 0)
         {
             transform.Rotate(new Vector3(0.0f, 0.5f, 0.0f));
         }
-        if (moviment.x > 0)
+        if (AD > 0)
         {
             transform.Rotate(new Vector3(0.0f, -0.5f, 0.0f));
         }

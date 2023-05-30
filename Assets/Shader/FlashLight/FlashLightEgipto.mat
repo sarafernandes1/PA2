@@ -10,8 +10,7 @@ Material:
   m_Name: FlashLightEgipto
   m_Shader: {fileID: 4800000, guid: 691231ad3f49cef4fa097db0fdcb636b, type: 3}
   m_ValidKeywords: []
-  m_InvalidKeywords:
-  - _ISLIGHTON_ON
+  m_InvalidKeywords: []
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -28,7 +27,7 @@ Material:
     m_Ints: []
     m_Floats:
     - _Glossiness: 0.5
-    - _IsLightOn: 1
+    - _IsLightOn: 0
     - _LightAngle: 40
     - _Metallic: 0
     - _StrengthScalar: 50
@@ -36,5 +35,5 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _LightDirection: {r: -0, g: -0, b: -1, a: 0}
-    - _LightPosition: {r: 129.23, g: 1.97, b: 42.9, a: 0}
+    - _LightPosition: {r: 145.8, g: 1.97, b: 154.6, a: 0}
   m_BuildTextureStacks: []

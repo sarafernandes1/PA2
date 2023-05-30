@@ -128,7 +128,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
-                    agent.speed = 1.5f;
+                    agent.speed = 2.5f;
                     PlayerCaught();
                 }
                 else

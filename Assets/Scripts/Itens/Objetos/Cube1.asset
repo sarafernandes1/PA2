@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cube1
   m_EditorClassIdentifier: 
   nome: Alavanca
-  imagem_objeto: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  imagem_objeto: {fileID: 21300000, guid: 5addb9a8d4d64eb49b29429a38a3f433, type: 3}
   description: Parte de uma alavanca

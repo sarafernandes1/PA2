@@ -12,6 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 48eda91105340e440b38d8d1b8902d8e, type: 3}
   m_Name: Ring
   m_EditorClassIdentifier: 
-  nome: Ring
-  imagem_objeto: {fileID: 0}
+  nome: Artefacto
+  imagem_objeto: {fileID: 21300000, guid: cd05fa4c1fef9c64e97ad7b99b6118a1, type: 3}
   description: "Pe\xE7a de enorme valor"

@@ -13,5 +13,5 @@ MonoBehaviour:
   m_Name: Cube1 1
   m_EditorClassIdentifier: 
   nome: Capacete
-  imagem_objeto: {fileID: 21300000, guid: f09eae8c0ea04254b90c5386a034a225, type: 3}
+  imagem_objeto: {fileID: 21300000, guid: 3e909973e831b79469fdf0c2edf9718e, type: 3}
   description: Capacete de St.John
