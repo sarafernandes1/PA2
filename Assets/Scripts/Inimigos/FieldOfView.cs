@@ -149,7 +149,7 @@ public class FieldOfView : MonoBehaviour
 
     IEnumerator espera()
     {
-        yield return new WaitForSeconds(2.0f);
+        yield return new WaitForSeconds(1.0f);
         GameOver.gameOver = true;
 
     }

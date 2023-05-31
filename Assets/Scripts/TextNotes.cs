@@ -8,11 +8,12 @@ public class TextNotes : MonoBehaviour
 {
     public Canvas note;
     public GameObject input;
+    private InputController inputController;
 
     // Start is called before the first frame update
     void Start()
     {
-
+        inputController = GameObject.Find("InputController").GetComponent<InputController>();
     }
 
     public void Exit()
@@ -30,5 +31,14 @@ public class TextNotes : MonoBehaviour
             Cursor.visible = true;
             Cursor.lockState = CursorLockMode.None;
         }
+
+        if (inputController.Pausa() && note.enabled)
+        {
+            MenuManager.Pausa = false;
+            note.enabled = false;
+            Time.timeScale = 1.0f;
+        }
+
     }
+
 }

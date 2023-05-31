@@ -7,6 +7,8 @@ public class MenuManager : MonoBehaviour
 {
     public InputController inputController;
     public Canvas pausa;
+    public static bool Pausa = true;
+    public bool a;
 
     void Start()
     {
@@ -15,11 +17,23 @@ public class MenuManager : MonoBehaviour
 
     void Update()
     {
-        if (inputController.Pausa())
+        if (inputController.Pausa() && Pausa)
         {
             pausa.enabled = true;
             Time.timeScale = 0.0f;
         }
+
+        if (!Pausa)
+        {
+            StartCoroutine(espera());
+        }
+        a = Pausa;
+    }
+
+    IEnumerator espera()
+    {
+        yield return new WaitForSeconds(1.0f);
+        Pausa = true;
     }
 
     public void Continuar()
