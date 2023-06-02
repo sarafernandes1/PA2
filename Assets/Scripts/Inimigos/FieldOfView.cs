@@ -21,7 +21,7 @@ public class FieldOfView : MonoBehaviour
     public GameObject[] pontos;
     public int pontos_index;
     bool perseguir = false;
-    float displayTime = 2.0f;
+    float displayTime = 1.5f;
     bool displayMessage = false;
 
     InimigoController inimigo;
@@ -99,7 +99,7 @@ public class FieldOfView : MonoBehaviour
                 {
                     displayMessage = false;
                     StartCoroutine(espera());
-                    displayTime = 2.0f;
+                    displayTime = 1.5f;
                 }
             }
         }
@@ -128,7 +128,7 @@ public class FieldOfView : MonoBehaviour
                 if (!Physics.Raycast(transform.position, directionToTarget, distanceToTarget, obstructionMask))
                 {
                     canSeePlayer = true;
-                    agent.speed = 2.5f;
+                   // agent.speed = 2.5f;
                     PlayerCaught();
                 }
                 else
@@ -149,7 +149,7 @@ public class FieldOfView : MonoBehaviour
 
     IEnumerator espera()
     {
-        yield return new WaitForSeconds(1.0f);
+        yield return new WaitForSeconds(0.6f);
         GameOver.gameOver = true;
 
     }

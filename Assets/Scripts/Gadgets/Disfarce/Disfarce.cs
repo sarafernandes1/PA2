@@ -21,6 +21,9 @@ public class Disfarce : MonoBehaviour
 
     public bool ativo = false;
     public Image image;
+    public GameObject player_modelo;
+    public Material material_dissolve;
+    public Material[] material_original;
 
     void Start()
     {
@@ -44,6 +47,7 @@ public class Disfarce : MonoBehaviour
 
             if (disfarceEstado)
             {
+                aplicarDissolveShader();
                 image.color = Color.red;
                 a = true;
                 canvas.enabled = true;
@@ -61,10 +65,31 @@ public class Disfarce : MonoBehaviour
                     ativo = false;
                     image.color = Color.white;
                     //gameObject.GetComponent<Disfarce>().enabled = false;
+                    desativarDissolveShader();
                 }
             }
         }
 
+    }
+
+    public void aplicarDissolveShader()
+    {
+        Material[] mats = player_modelo.GetComponent<SkinnedMeshRenderer>().materials;
+        mats[1] = material_dissolve;
+        mats[0] = material_dissolve;
+        mats[2] = material_dissolve;
+
+        player_modelo.GetComponent<SkinnedMeshRenderer>().materials = mats;
+    }
+
+    public void desativarDissolveShader()
+    {
+        Material[] mats = player_modelo.GetComponent<SkinnedMeshRenderer>().materials;
+        mats[1] = material_original[1];
+        mats[0] = material_original[0];
+        mats[2] = material_original[2];
+
+        player_modelo.GetComponent<SkinnedMeshRenderer>().materials = mats;
     }
 
     bool verificarGuardas()

@@ -19,7 +19,7 @@ public class InimigoParado : MonoBehaviour
     public bool canSeePlayer;
 
     bool perseguir = false;
-    float displayTime = 2.0f;
+    float displayTime = 1.5f;
     bool displayMessage = false;
 
     public int index;
@@ -140,7 +140,8 @@ public class InimigoParado : MonoBehaviour
             if (displayTime <= 0.0)
             {
                 displayMessage = false;
-                displayTime = 2.0f;
+                StartCoroutine(espera());
+                displayTime = 1.5f;
             }
         }
 
@@ -182,6 +183,12 @@ public class InimigoParado : MonoBehaviour
         }
     }
 
+    IEnumerator espera()
+    {
+        yield return new WaitForSeconds(0.6f);
+        GameOver.gameOver = true;
+
+    }
 
     IEnumerator pararSom()
     {
