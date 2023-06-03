@@ -5,6 +5,7 @@ using UnityEngine;
 public class AtivarGuardas : MonoBehaviour
 {
     GameObject player;
+    bool a = true;
 
     void Start()
     {
@@ -13,7 +14,7 @@ public class AtivarGuardas : MonoBehaviour
 
     void Update()
     {
-        if (player.GetComponent<Inventario>().temObjetoFinal)
+        if (player.GetComponent<Inventario>().temObjetoFinal && a)
         {
             Vitoria.artefacto=true;
             GameObject[] guardas = GameObject.FindGameObjectsWithTag("Guardas");
@@ -21,6 +22,7 @@ public class AtivarGuardas : MonoBehaviour
             {
                 guarda.GetComponent<FieldOfView>().batalhaFinal = true;
             }
+            a = false;
         }
     }
 }

@@ -28,7 +28,7 @@ public class FieldOfView : MonoBehaviour
     public bool a;
     public int index;
 
-    public bool batalhaFinal=false;
+    public  bool batalhaFinal=false;
     public Animator anim = null;
 
     private void Start()

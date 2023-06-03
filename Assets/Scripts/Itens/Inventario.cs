@@ -37,10 +37,10 @@ public class Inventario : MonoBehaviour
     void Update()
     {
 
-        if(temObjetoFinal)
-        {
-            verificarItemInventario();
-        }
+        //if(temObjetoFinal)
+        //{
+        //    verificarItemInventario();
+        //}
 
 
         ConfirmarInventario();
