@@ -9,6 +9,7 @@ public class MenuManager : MonoBehaviour
     public Canvas pausa;
     public static bool Pausa = true;
     public bool a;
+    public Canvas menu, config;
 
     void Start()
     {
@@ -52,5 +53,18 @@ public class MenuManager : MonoBehaviour
         Time.timeScale = 1.0f;
         pausa.enabled = false;
         SceneManager.LoadScene(0);
+    }
+
+    public void Configuracao()
+    {
+        menu.enabled = false;
+        config.enabled = true;
+    }
+
+    public void Voltar()
+    {
+        config.enabled = false;
+        menu.enabled = true;
+
     }
 }

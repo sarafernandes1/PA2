@@ -11,6 +11,10 @@ TagManager:
   - Guardas
   - Escudo
   - Sarcofago
+  - Computer
+  - YGO
+  - Helmet
+  - Eye
   layers:
   - Default
   - TransparentFX
