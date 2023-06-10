@@ -62,43 +62,10 @@ Shader "Custom/TVLobby"
 		    fragColor.g = tex2D(_mainTex1, uv_g).g;
 		    fragColor.b = tex2D(_mainTex1, uv_b).b;
 
-		//// loose luma for some blocks
-		//if (tex2D(_mainTex2, uv_noise).g < block_thresh)
-  //      {
-  //      fragColor.rgb = fragColor.ggg;
-  //      //o.Albedo = fixed4 (fragColor.r,fragColor.g,fragColor.b,1.0);
-  //      }
-		
-
-		//// discolor block lines
-		//if (tex2D(_mainTex2, float2(uv_noise.y, 0.0)).b * 3.5 < line_thresh)
-  //      {
-  //      fragColor.rgb = float3(0.0, dot(fragColor.rgb, float3(1.0,1.0,1.0)), 0.0);
-  //      //o.Albedo = fixed4 (fragColor.r,fragColor.g,fragColor.b,1.0);
-  //      }
-		
-        
-
-		//// interleave lines in some blocks
-		//if (tex2D(_mainTex2, uv_noise).g * 1.5 < block_thresh ||
-		//	tex2D(_mainTex2, float2(uv_noise.y, 0.0)).g * 2.5 < line_thresh) 
-		//	{
-		//		float line1 = frac(uv.y / 3.0);
-		//		float3 mask = float3(3.0, 0.0, 0.0);
-		//			if (line1 > 0.333)
-		//			mask = float3(0.0, 3.0, 0.0);
-		//			if (line1 > 0.666)
-		//			mask = float3(0.0, 0.0, 3.0);
-		
-            
-		//	fragColor.xyz *= mask;
-  //          //o.Albedo = fixed4 (fragColor.r,fragColor.g,fragColor.b,1.0);
-
-		//	}
 
 			//float3 Tex1 = tex2D(_mainTex1, IN.uv_mainTex1).rgb;
 			float3 Tex1 = tex2D(_mainTex1, IN.uv_mainTex1+cos(_Time+100)).rgb;
-           o.Albedo = Tex1 + fragColor.rgb; //fixed4 (fragColor.r,fragColor.g,fragColor.b,1.0);
+           o.Albedo = Tex1 + fragColor.rgb; 
 			
         }
         ENDCG
