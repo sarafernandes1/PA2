@@ -21,11 +21,14 @@ public class PlayerController : MonoBehaviour
     public bool gancho = false;
 
     public Animator anim = null;
-    public GameObject jogador_modelo;
+    public Animator anim_guarda = null;
+
+    public GameObject jogador_modelo, guarda_modelo;
 
     private void Start()
     {
         anim = GetComponentInChildren<Animator>();
+        anim_guarda = guarda_modelo.GetComponent<Animator>();
         controller = GetComponent<CharacterController>();
     }
 
@@ -59,10 +62,12 @@ public class PlayerController : MonoBehaviour
             {
                 float y = 0;
                 anim.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
+                 anim_guarda.SetFloat("Speed", 1.0f, 0.3f, Time.deltaTime);
             }
             else
             {
                 anim.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
+                 anim_guarda.SetFloat("Speed", 0.0f, 0.3f, Time.deltaTime);
             }
 
             if (inputController.GetPlayerJumpInThisFrame())

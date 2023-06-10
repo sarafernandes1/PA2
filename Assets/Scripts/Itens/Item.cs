@@ -34,6 +34,29 @@ public class Item : MonoBehaviour
             Time.timeScale = 0.0f;
             item_ = false;
             item_collected = false;
+
+
+            string tag_objeto = gameObject.tag;
+
+            switch (tag_objeto)
+            {
+                case "Eye":
+                    PlayerPrefs.SetString("Eye", "Coletado");
+                    break;
+                case "Helmet":
+                    PlayerPrefs.SetString("Helmet", "Coletado");
+                    break;
+                case "YGO":
+                    PlayerPrefs.SetString("YGO", "Coletado");
+                    break;
+                case "Computer":
+                    PlayerPrefs.SetString("Computer", "Coletado");
+                    break;
+                default:
+                    break;
+            }
+
+          
         }
 
         if (rotate)
@@ -73,8 +96,14 @@ public class Item : MonoBehaviour
 
         StartCoroutine(espera());
 
+        if (gameObject.name == "Artifact_Ring_")
+        {
+            player.GetComponent<Inventario>().temObjetoFinal = true;
+        }
+
         if (inputController.PegarItem() && item_)
         {
+           
 
             player.GetComponent<Inventario>().ItemColetado(dados_item, gameObject);
             canvas.enabled = false;

@@ -39,7 +39,7 @@ public class ControlarGadgets : MonoBehaviour
         else if (inputController.ItemMao() == 1 &&
             !gameObject.GetComponent<PlayerController>().gancho && time<=0)
         {
-            time = 20;
+            time = 2;
             disfarce = !disfarce;
             luz = false;
             gancho = false;
