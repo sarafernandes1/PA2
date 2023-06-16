@@ -36,7 +36,7 @@ Shader "Custom/sky_shader"
         void surf (Input IN, inout SurfaceOutput o)
         {
             
-            float2 rotations = Rotate(IN.uv_MainTex,(sin(_Time)+1000));
+            float2 rotations = Rotate(IN.uv_MainTex,(tan(_Time)+1000));
             float3 Tex = tex2D(_MainTex, rotations);
             o.Albedo = Tex;
             o.Alpha=1;

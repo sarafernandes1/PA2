@@ -3,11 +3,11 @@ Shader "Hidden/VHS"
     Properties
     {
         _MainTex ("Texture", 2D) = "white" {}
-        _DistorTexture("Texture", 2D) = "white" {}
-         _DistorTexture1("Texture", 2D) = "white" {}
-         _DistorTexture2("Texture", 2D) = "white" {}
-         _Record("Record", 2D)="white"{}
-           _Colunas("Colunas", Range(0,200))=1
+        _DistorTexture("Efeito", 2D) = "white" {}
+        _DistorTexture1("Gradiente", 2D) = "white" {}
+        _DistorTexture2("Efeito 2", 2D) = "white" {}
+        _Record("Record", 2D)="white"{}
+        _Colunas("Colunas", Range(0,200))=1
         _Linhas("Linhas", Range(0,200))=1
     }
     SubShader
@@ -49,7 +49,7 @@ Shader "Hidden/VHS"
             sampler2D _DistorTexture2;
 
             sampler2D _Record;
-             float _Colunas;
+            float _Colunas;
             float _Linhas;
 
             static float range = 0.05;
@@ -129,7 +129,7 @@ Shader "Hidden/VHS"
               
 
                 // Distorção
-              UVS.y += sin(_Time*1.0f).y;
+                UVS.y += sin(_Time*1.0f).y;
               
                 fixed4 tex3= tex2D(_DistorTexture2, UVS/2 )*0.2f;
 

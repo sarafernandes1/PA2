@@ -21,7 +21,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _DistorTexture:
-        m_Texture: {fileID: 2800000, guid: cfd17ea8385e8db43b1e81158f810587, type: 3}
+        m_Texture: {fileID: 2800000, guid: e2b7eba21cc82584597f1c5755c325e8, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistorTexture1:
@@ -29,7 +29,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DistorTexture2:
-        m_Texture: {fileID: 2800000, guid: e2b7eba21cc82584597f1c5755c325e8, type: 3}
+        m_Texture: {fileID: 2800000, guid: cfd17ea8385e8db43b1e81158f810587, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:

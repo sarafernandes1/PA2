@@ -231,7 +231,7 @@ public class PostProcessing : MonoBehaviour
 
         }
 
-        if (!toggle[1].isOn && !toggle[1].isOn)
+        if (!toggle[0].isOn && !toggle[1].isOn)
         {
 
             Camera.main.GetComponent<blip>().enabled = false;

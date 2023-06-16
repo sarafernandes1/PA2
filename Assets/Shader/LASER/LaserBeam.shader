@@ -3,11 +3,6 @@ Shader "Custom/LaserBeam"
     Properties
     {
         _Textura("Textura", 2D)="defaulttexture"{}
-        _Noise("Noise", 2D)="defaulttexture"{}
-
-        _rimColor("Cor",Color)=(1,1,1,1)
-        _ExpoenteControl ("Expoente", Range(-5,10))=1
-        _color("Cor2", Color)=(1,1,1,1)
     }
 
     SubShader
@@ -24,10 +19,7 @@ Shader "Custom/LaserBeam"
         };
 
         sampler2D _Textura;
-        float3 _rimColor;
-        float _ExpoenteControl;
-        float3 _color;
-        sampler2D _Noise;
+      
 
 		 #define mod(x,y) (x-y*floor(x/y))
 

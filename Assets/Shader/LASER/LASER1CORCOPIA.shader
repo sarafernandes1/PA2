@@ -3,11 +3,6 @@ Shader "Custom/LASER1CORCOPIA"
        Properties
     {
         _Textura("Textura", 2D)="defaulttexture"{}
-        _Noise("Noise", 2D)="defaulttexture"{}
-
-        _rimColor("Cor",Color)=(1,1,1,1)
-        _ExpoenteControl ("Expoente", Range(-5,10))=1
-        _color("Cor2", Color)=(1,1,1,1)
     }
 
     SubShader
@@ -24,16 +19,12 @@ Shader "Custom/LASER1CORCOPIA"
         };
 
         sampler2D _Textura;
-        float3 _rimColor;
-        float _ExpoenteControl;
-        float3 _color;
-        sampler2D _Noise;
 
 		 #define mod(x,y) (x-y*floor(x/y))
 
         void surf(Input IN, inout SurfaceOutput o) {
 		
-       float2 uv = float2(IN.uv_Textura.y, IN.uv_Textura.x) ;
+				float2 uv = float2(IN.uv_Textura.y, IN.uv_Textura.x) ;
 				float angle=3.14;
 	            //get the colour
 	            float xCol = (uv.x - (40.0*_Time / 2.0)) * 3.0;
@@ -76,16 +67,17 @@ Shader "Custom/LASER1CORCOPIA"
 	            float beamWidth = abs(1.0 / (20.0 * uv.y));
 	            float3 horBeam = float3(beamWidth,beamWidth,beamWidth);
 
-	            o.Albedo += float4(((backLines * horBeam) * horColour), 1.0)*20.0f ;
+	            o.Albedo += float4(((backLines *horBeam) * horColour), 1.0)*20.0f ;
 
 				 half dotp= dot(normalize(IN.viewDir), o.Normal);
 				
 
 			 o.Alpha = 1;
-			if(dotp>0 && dotp<0.7f){
+			 if(dotp>0 && dotp<0.7f)
+			 {
 				o.Alpha = 0.5f;
 				o.Albedo = horColour;
-				}
+			}
         }
 		
         
